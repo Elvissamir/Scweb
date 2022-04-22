@@ -14,13 +14,27 @@
 .footer-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     margin: auto;
     padding: 2em 1em;
     width: auto;
 }
 
-.footer-content p {
+.footer-content .bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.footer-content .top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-content .bottom p, .top p {
     margin: 0.2em;
 }

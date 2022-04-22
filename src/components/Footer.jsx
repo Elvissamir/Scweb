@@ -6,10 +6,14 @@ class Footer extends Component {
             <div className='footer-container'>
                 <footer className='footer'>
                     <div className='footer-content'>
-                        <p>Scandiweb 2022</p>
-                        <p>React Store App</p>
-                        <p>Junior React Developer</p>
-                        <p>Developed by Elvis Carrasco</p>
+                        <div className="top">
+                            <p>React Store App</p>
+                            <p>Scandiweb 2022</p>
+                        </div>
+                        <div className="bottom">
+                            <p>Junior Front end Developer</p>
+                            <p>Developed by Elvis Carrasco</p>
+                        </div>
                     </div>
                 </footer> 
             </div>
