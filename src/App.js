@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Nav from './components/Nav'
-import Footer from './components/Footer.jsx'
-import Product from './components/Product';
-import ProductPage from './components/ProductPage';
+import Nav from './components/layout/Nav'
+import Footer from './components/layout/Footer'
+import Product from './components/products/Product';
+import ProductPage from './components/products/ProductPage';
 import NotFound from './components/NotFound';
 
 class App extends Component { 
