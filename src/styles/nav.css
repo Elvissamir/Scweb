@@ -1,0 +1,45 @@
+.nav-container {
+    display: flex;
+    padding: 1.2em 0;
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+    width: 100%;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: var(--layout-x-width);
+}
+
+.nav-content .menu {
+    display: flex;
+    list-style: none;
+    width: 40%;
+}
+
+.menu .menu-link {
+    padding: 0.5em 0.5em 1.5em 0.5em;
+}
+
+.menu .menu-link:not(:first-child) {
+    margin-left: 2em;
+}
+
+.nav-content .logo {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 30%;
+}
+
+.nav-content .options-menu {
+    align-items: center;
+    display: flex;
+    justify-content: end;
+    width: 40%;
+}

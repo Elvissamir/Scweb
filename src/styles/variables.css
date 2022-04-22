@@ -1,3 +1,4 @@
 * {
-    --brand-dark: rgba(20, 20, 20, 0.8)
+    --brand-dark: rgba(20, 20, 20, 0.8);
+    --layout-x-width: 75%;
 }
