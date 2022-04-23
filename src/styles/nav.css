@@ -18,12 +18,13 @@
 
 .nav-content .menu {
     display: flex;
+    align-items: center;
     list-style: none;
     width: 40%;
 }
 
 .menu .menu-link {
-    padding: 0.5em 0.5em 1.5em 0.5em;
+    
 }
 
 .menu .menu-link:not(:first-child) {
