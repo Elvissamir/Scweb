@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Nav from './components/layout/Nav'
 import Footer from './components/layout/Footer'
 import Product from './components/products/Product';
-import ProductPage from './components/products/ProductPage';
+import ProductPage from './views/ProductPage';
 import NotFound from './components/NotFound';
 
 const client = new ApolloClient({
@@ -19,6 +19,7 @@ const product_query = gql`
     }
   }
 `
+
 class App extends Component { 
     render() {
         return (
