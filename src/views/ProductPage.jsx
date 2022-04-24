@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 
 class ProductPage extends Component {
     async componentDidMount() {
-        try {
-           
-        }
-        catch (ex) {
-            console.log(ex)
-        }
+        
     }
 
     render() { 

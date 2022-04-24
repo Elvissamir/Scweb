@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import ProductPage from '../views/ProductPage';
-import NotFound from '../views/NotFound';
+import NotFound from '../views/NotFoundPage';
 
 class Router extends Component {
     render () {

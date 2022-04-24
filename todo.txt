@@ -1,0 +1,21 @@
+### IN ALL PAGES
+ - Add or remove products and change their amounts in cart overlay
+ - The selected options of the product should be visible
+ - Ability to change the currency for all pages
+
+
+### PRODUCT LISTING PAGE (CATEGORY PAGE)
+ - Filtering products by category (All, Tech, Clothes)
+ - Items in the cart should be identified with the cart symbol 
+
+ 
+### PRODUCT DESCRIPTION PAGE 
+ - Select options of the product 
+ - Show properties (name, description, price)
+
+
+### CART PAGE
+ - Add or remove products and change their amounts 
+ - The selected options of the product should be visible
+
+

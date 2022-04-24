@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { ApolloProvider } from '@apollo/client';
-import client from './http/apolloClient'
+import client from './services/http/apolloClient'
 import Nav from './components/layout/Nav'
 import Footer from './components/layout/Footer'
 import Router from './components/Router';
