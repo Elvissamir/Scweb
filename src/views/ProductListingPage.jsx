@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { findCategories } from '../services/http/ProductListing/ProductListingPage'
 
 class ProductPage extends Component {
-    state = { categories: ['hola'] }
+    state = { categories: null }
 
     async componentDidMount() {
         const result = await findCategories()
@@ -12,13 +12,13 @@ class ProductPage extends Component {
         }
     }
 
+    // Add handleCategoryChange
+
     render() { 
         return (
             <>
                 <div className='categories-container'>
-                    {this.state.categories.map(category => 
-                        <button key={category}>{ category.toUpperCase() }</button>
-                    )}
+
                 </div>
             </>
         );
