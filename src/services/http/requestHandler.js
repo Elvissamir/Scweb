@@ -2,7 +2,7 @@ import client from './apolloClient'
 
 export default async function (gqlquery, options) {
     const query = {
-        gqlquery
+        query: gqlquery
     }
 
     if (options && options.variables)

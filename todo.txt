@@ -6,7 +6,7 @@
 
 ### PRODUCT LISTING PAGE (CATEGORY PAGE)
  - Filtering products by category (All, Tech, Clothes)
- - Items in the cart should be identified with the cart symbol 
+ - Button to add product to cart, should select attributes first
 
  
 ### PRODUCT DESCRIPTION PAGE 
