@@ -9,8 +9,8 @@ export default async function (gqlquery, options) {
         query.variables = options.variables
 
     try {
-        const result = await client.query(query)
-        return result
+        const { data } = await client.query(query)
+        return data
     }
     catch (ex) {
         return { error: ex }
