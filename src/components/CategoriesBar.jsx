@@ -1,3 +1,5 @@
+import { Component } from 'react';
+
 class CategoriesBar extends Component {
     render() { 
         return (
