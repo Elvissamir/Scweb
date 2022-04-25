@@ -1,4 +1,7 @@
 * {
     --brand-dark: rgba(20, 20, 20, 0.8);
+    --brand-action: rgba(0, 200, 150, 0.8);
+    --brand-active: rgba(0, 200, 140, 0.8);
+    --brand-no-action: rgba(0, 200, 100, 0.8);
     --layout-x-width: 75%;
 }

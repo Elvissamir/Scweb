@@ -1,4 +1,13 @@
+/*App*/
 @import './styles/general.css';
 @import './styles/variables.css';
-@import './styles/nav.css';
-@import './styles/footer.css';
+
+/*Layout*/
+@import './styles/layout/nav.css';
+@import './styles/layout/footer.css';
+
+/*Components*/
+@import './styles/components/CategoriesBar.css';
+
+/*Pages*/
+@import './styles/pages/productListing/main.css';

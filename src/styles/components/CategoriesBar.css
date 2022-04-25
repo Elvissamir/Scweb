@@ -1,0 +1,24 @@
+.category-bar {
+    display: flex;
+    background-color: white;
+    height: 3rem;
+    width: 100%;
+}
+
+.category {
+    background-color: var(--brand-no-active);
+    border-top: 2px lightgray solid;
+    border-bottom: 2px lightgray solid;
+    color: green;
+    padding: 1em;
+}
+
+.category:nth-child(even) {
+    border-left: 0;
+    border-right: 0;
+}
+
+.category:nth-child(odd) {
+    border-left: 2px lightgray solid;
+    border-right: 2px lightgray solid;
+}
