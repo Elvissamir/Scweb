@@ -40,6 +40,7 @@ class ProductPage extends Component {
         return (
             <CategoriesBar 
                 categories={this.state.categories}
+                active={this.state.activeCategory}
                 onClick={this.handleCategoryChange} />
         )
     }

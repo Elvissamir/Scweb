@@ -7,6 +7,7 @@ class CategoriesBar extends Component {
                 {this.props.categories.map(category => 
                     <button 
                         key={category}
+                        className={ this.props.active === category? 'active-category category' : 'category'}
                         onClick={this.props.onClick}>
                             { category }
                     </button>
