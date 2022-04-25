@@ -5,7 +5,11 @@ class CategoriesBar extends Component {
         return (
             <div className="category-bar">
                 {this.props.categories.map(category => 
-                    <button key={category}>{ category.toUpperCase() }</button>
+                    <button 
+                        key={category}
+                        onClick={this.props.onClick}>
+                            { category }
+                    </button>
                 )}
             </div>
         );

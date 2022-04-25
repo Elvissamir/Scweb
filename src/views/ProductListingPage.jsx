@@ -5,6 +5,7 @@ import CategoriesBar from '../components/CategoriesBar';
 class ProductPage extends Component {
     state = { 
         categories: [], 
+        activeCategory: null,
         loading: true,
         hasData: false,
         error: false
@@ -13,12 +14,16 @@ class ProductPage extends Component {
     async componentDidMount() {
         const result = await findCategories()
         if (!result.error) {
-            const categories = result.categories.map(category => category.name)
-            this.setState({ categories, hasData: true, loading: false })
+            const categories = result.categories.map(category => category.name.toUpperCase())
+            this.setState({ categories, hasData: true, loading: false, activeCategory: categories[0] })
         }
         else {
             this.setState({ error:true, loading: false })
         }
+    }
+
+    handleCategoryChange = ({ target }) => {
+        this.setState({ activeCategory: target.textContent })
     }
 
     renderBlock() {
@@ -33,7 +38,9 @@ class ProductPage extends Component {
 
     renderContent() {
         return (
-            <CategoriesBar categories={this.state.categories} />
+            <CategoriesBar 
+                categories={this.state.categories}
+                onClick={this.handleCategoryChange} />
         )
     }
 
@@ -45,7 +52,6 @@ class ProductPage extends Component {
         return <div>Something happened. Try again in a few minutes.</div>
     }
 
-    // Add handleCategoryChange
     render() { 
         return (
             <div className='content-wrapper'>
