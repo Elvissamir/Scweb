@@ -6,11 +6,13 @@
 }
 
 .category {
-    background-color: var(--brand-no-active);
+    background-color: white;
     border-top: 2px lightgray solid;
     border-bottom: 2px lightgray solid;
-    color: green;
+    color: black;
+    font-weight: bolder;
     padding: 1em;
+    cursor: pointer;
 }
 
 .category:nth-child(even) {
@@ -21,4 +23,9 @@
 .category:nth-child(odd) {
     border-left: 2px lightgray solid;
     border-right: 2px lightgray solid;
+}
+
+.active-category {
+    background-color: var(--brand-active);
+    color: white;
 }
