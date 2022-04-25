@@ -11,9 +11,9 @@ class Nav extends Component {
                             <li className='menu-link'>MEN</li>
                             <li className='menu-link'>KIDS</li>
                         </ul>
-
-                        <div className="logo">LOGO</div>
-
+                        <div className="logo-container">
+                            <img src="/imgs/logo.svg" alt="logo" />
+                        </div>
                         <div className="options-menu">
                             <p>$</p>
                         </div>
