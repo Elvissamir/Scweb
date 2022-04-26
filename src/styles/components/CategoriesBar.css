@@ -26,6 +26,6 @@
 }
 
 .active-category {
-    background-color: var(--brand-active);
+    background-color: var(--brand-dark);
     color: white;
 }
