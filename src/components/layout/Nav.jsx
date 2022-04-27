@@ -20,13 +20,22 @@ class Nav extends Component {
         }
     }
 
-    isActive = (category) => {
+    isActiveCategory = (category) => {
         return category === this.props.activeCategory
     }
 
-    handleLinkSelect = ({ target }) => {
+    isActiveCurrency = (currency) => {
+        return currency === this.props.activeCurrency
+    }
+
+    handleCategorySelect = ({ target }) => {
         if (target.id !== this.props.activeCategory)
             this.props.changeCategory({ category: target.id })
+    }
+
+    handleCurrencySelect = ({ target }) => {
+        if (target.id !== this.props.activeCurrency)
+            this.props.changeCurrency({ currency: target.id })
     }
 
     render() { 
@@ -39,8 +48,8 @@ class Nav extends Component {
                                 <li 
                                     id={category}
                                     key={category} 
-                                    onClick={ this.handleLinkSelect }
-                                    className={this.isActive(category)? 'menu-link active-link': 'menu-link'}>
+                                    onClick={ this.handleCategorySelect }
+                                    className={this.isActiveCategory(category)? 'menu-link active-link': 'menu-link'}>
                                     { category.toUpperCase() }
                                 </li>
                             )}
@@ -50,7 +59,12 @@ class Nav extends Component {
                         </div>
                         <div className="currencies-menu">
                             {this.state.currencies.map(currency => 
-                                <p key={currency}>{currency}</p>    
+                                <p 
+                                    id={currency} 
+                                    key={currency}
+                                    className={this.isActiveCurrency(currency)? 'active-currency' : 'hidden-currency'}>
+                                        {currency}
+                                </p>  
                             )}
                         </div>
                     </div>
