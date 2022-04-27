@@ -9,7 +9,6 @@ export const categorySlice = createSlice({
     initialState,
     reducers: {
         changeCategory: (state, action) => {
-            console.log(action.payload)
             state.activeCategory = action.payload.category
         },
     }

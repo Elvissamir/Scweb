@@ -5,14 +5,11 @@ import { changeCurrency } from '../../store/features/currency/currencySlice'
 import { connect } from 'react-redux';
 
 class Nav extends Component {
-    state = { activeIndex: 0, categories: [], currencies: []}
+    state = { categories: [], currencies: []}
     
     async componentDidMount() {
         const result = await findCategoriesAndCurrencies()
 
-        // console.log(this.props.changeCategory({ category: 'MONEY' }))
-        // console.log(this.props.changeCurrency({ currency: 'o' }))
-        
         if (!result.error) {
             const categories = result.categories.map(category => category.name)
             const currencies = result.currencies.map(currency => currency.symbol)
@@ -23,14 +20,13 @@ class Nav extends Component {
         }
     }
 
-    isActive = (index) => {
-        return index === this.state.activeIndex
+    isActive = (category) => {
+        return category === this.props.activeCategory
     }
 
     handleLinkSelect = ({ target }) => {
-        const index = target.value
-        if (index != this.state.activeIndex)
-            this.setState({ activeIndex: index })
+        if (target.id !== this.props.activeCategory)
+            this.props.changeCategory({ category: target.id })
     }
 
     render() { 
@@ -39,13 +35,13 @@ class Nav extends Component {
                 <nav className='nav'>
                     <div className='nav-content'>
                         <ul className='menu'>
-                            {this.state.categories.map((link, index) => 
+                            {this.state.categories.map(category => 
                                 <li 
-                                    value={index}
-                                    key={index} 
+                                    id={category}
+                                    key={category} 
                                     onClick={ this.handleLinkSelect }
-                                    className={this.isActive(index)? 'menu-link active-link': 'menu-link'}>
-                                    { link.toUpperCase() }
+                                    className={this.isActive(category)? 'menu-link active-link': 'menu-link'}>
+                                    { category.toUpperCase() }
                                 </li>
                             )}
                         </ul>
