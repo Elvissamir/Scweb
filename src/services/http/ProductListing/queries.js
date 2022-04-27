@@ -7,14 +7,7 @@ query findCategories {
   	}
 }
 `
-const FIND_CATEGORY = gql`
-query findCategory ($name: String!) {
-  	category (name: $name) {
-    	name
-  	}
-}
-`
+
 export {
-    FIND_CATEGORY,
     FIND_CATEGORIES,
 }
