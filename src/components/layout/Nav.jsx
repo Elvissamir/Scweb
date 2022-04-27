@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { findCategoriesAndCurrencies } from '../../services/http/Nav/Nav';
+import { changeCategory } from '../../store/features/category/categorySlice';
+import { changeCurrency } from '../../store/features/currency/currencySlice'
+import { connect } from 'react-redux';
 
 class Nav extends Component {
     state = { activeIndex: 0, categories: [], currencies: []}
     
     async componentDidMount() {
         const result = await findCategoriesAndCurrencies()
+
+        // console.log(this.props.changeCategory({ category: 'MONEY' }))
+        // console.log(this.props.changeCurrency({ currency: 'o' }))
         
         if (!result.error) {
             const categories = result.categories.map(category => category.name)
@@ -57,5 +63,15 @@ class Nav extends Component {
         );
     }
 }
- 
-export default Nav;
+
+const mapStateToProps = state => ({
+    activeCategory: state.category.activeCategory,
+    activeCurrency: state.currency.activeCurrency
+})
+
+const mapDispatchToProps = dispatch => ({
+    changeCategory: (payload) => dispatch(changeCategory(payload)),
+    changeCurrency: (payload) => dispatch(changeCurrency(payload))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav)

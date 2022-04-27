@@ -1,19 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    category: 'all'
+    activeCategory: 'all'
 }
 
 export const categorySlice = createSlice({
     name: 'category',
     initialState,
     reducers: {
-        changeCurrency: (state, action) => {
-            state.category = action.payload.category
+        changeCategory: (state, action) => {
+            console.log(action.payload)
+            state.activeCategory = action.payload.category
         },
     }
 })
 
-export const { changeCurrency } = categorySlice.actions
+export const { changeCategory } = categorySlice.actions
 
 export default categorySlice.reducer
