@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { findCategories } from '../services/http/ProductListing/ProductListingPage'
-import CategoriesBar from '../components/CategoriesBar';
 
 class ProductPage extends Component {
     state = { 
@@ -38,10 +37,7 @@ class ProductPage extends Component {
 
     renderContent() {
         return (
-            <CategoriesBar 
-                categories={this.state.categories}
-                active={this.state.activeCategory}
-                onClick={this.handleCategoryChange} />
+           <p>Hola</p>
         )
     }
 

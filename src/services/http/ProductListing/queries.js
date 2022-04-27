@@ -7,7 +7,6 @@ query findCategories {
   	}
 }
 `
-
 export {
     FIND_CATEGORIES,
 }
