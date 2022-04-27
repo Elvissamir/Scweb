@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Nav extends Component {
-    state = { activeIndex: 0, links: ['WOMEN', 'MEN', 'KIDS'] }
+    state = { activeIndex: 0, links: [] }
 
     isActive = (index) => {
         return index === this.state.activeIndex
