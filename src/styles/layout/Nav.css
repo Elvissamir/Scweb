@@ -46,11 +46,16 @@
     display: flex;
 }
 
-.nav-content .currencies-menu {
+.currencies-menu {
     align-items: flex-start;
     display: flex;
     justify-content: end;
     width: 40%;
+}
+
+.currencies-menu-content {
+    display: flex;
+    position: relative;
 }
 
 .menu-link:hover {
@@ -62,10 +67,34 @@
     border-bottom: 0.2em var(--brand-active) solid;
 }
 
-.active-currency {
-    font-weight: bolder;
+.active-currency-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.hidden-currency {
+.active-currency {
+    font-weight: bolder;
+    margin: auto;
+}
+
+.hidden {
     display: none;
+}
+
+.currency-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.2em;
+    position: absolute;
+}
+
+.currency-option:nth-child(odd) {
+    padding: 1em 0;
+}
+
+.currency-toggle-btn {
+    margin-left: 1em;
 }
