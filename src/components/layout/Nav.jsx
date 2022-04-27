@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import { findCategories } from '../../services/http/ProductListing/ProductListingPage'
+import { findCategoriesAndCurrencies } from '../../services/http/Nav/Nav';
 
 class Nav extends Component {
-    state = { activeIndex: 0, links: [] }
+    state = { activeIndex: 0, categories: [], currencies: []}
     
     async componentDidMount() {
-        const result = await findCategories()
+        const result = await findCategoriesAndCurrencies()
+        
         if (!result.error) {
-            const categories = result.categories.map(category => category.name.toUpperCase())
-            this.setState({ links: categories, activeIndex: 0 })
+            const categories = result.categories.map(category => category.name)
+            const currencies = result.currencies.map(currency => currency.symbol)
+            this.setState({ categories, currencies })
         }
         else {
-            console.log('Error')
+            console.log('error')
         }
     }
 
@@ -31,21 +33,23 @@ class Nav extends Component {
                 <nav className='nav'>
                     <div className='nav-content'>
                         <ul className='menu'>
-                            {this.state.links.map((link, index) => 
+                            {this.state.categories.map((link, index) => 
                                 <li 
                                     value={index}
                                     key={index} 
                                     onClick={ this.handleLinkSelect }
                                     className={this.isActive(index)? 'menu-link active-link': 'menu-link'}>
-                                    { link }
+                                    { link.toUpperCase() }
                                 </li>
                             )}
                         </ul>
                         <div className="logo-container">
                             <img src="/imgs/logo.svg" alt="logo" />
                         </div>
-                        <div className="options-menu">
-                            <p>$</p>
+                        <div className="currencies-menu">
+                            {this.state.currencies.map(currency => 
+                                <p key={currency}>{currency}</p>    
+                            )}
                         </div>
                     </div>
                 </nav>

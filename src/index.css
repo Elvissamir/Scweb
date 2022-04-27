@@ -7,7 +7,6 @@
 @import './styles/layout/Footer.css';
 
 /*Components*/
-@import './styles/components/CategoriesBar.css';
 
 /*Pages*/
 @import './styles/pages/productListing/main.css';
