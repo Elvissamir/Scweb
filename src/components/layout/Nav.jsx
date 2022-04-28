@@ -7,6 +7,8 @@ import { connect } from 'react-redux';
 class Nav extends Component {
     state = { 
         categories: [], 
+        optionsRef: React.createRef(),
+        toggleBtnRef: React.createRef(),
         currencies: [],
         showCurrencyOptions: false
     }
@@ -18,10 +20,16 @@ class Nav extends Component {
             const categories = result.categories.map(category => category.name)
             const currencies = result.currencies.map(({symbol, label}) => ({ symbol, label }))
             this.setState({ categories, currencies })
+
+            document.addEventListener('click', this.handleClickOutside)
         }
         else {
             console.log('error')
         }
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.handleClickOutside)
     }
 
     isActiveCategory = (category) => {
@@ -46,6 +54,11 @@ class Nav extends Component {
             this.props.changeCurrency({ currency: target.id })
     }
 
+    handleClickOutside = ({ target }) => {
+        if (!this.state.optionsRef.current.contains(target) && target !== this.state.toggleBtnRef.current)
+            this.setState({ showCurrencyOptions: false })
+    }
+
     render() { 
         return (
             <div className='nav-container'>
@@ -68,21 +81,22 @@ class Nav extends Component {
                         <div className="currencies-menu">
                             <div className='currencies-wrapper'>
                                 <p className='active-currency'>{this.props.activeCurrency}</p>
-                                <div className={this.state.showCurrencyOptions? 'currency-options-wrapper':'hide-currency-menu'}>
-                                        {this.state.currencies.map(option => 
-                                            <div 
-                                                key={option.symbol} 
-                                                id={option.symbol}
-                                                onClick={this.handleCurrencySelect}
-                                                className='currency'>
-                                                    {option.symbol + ' ' + option.label}
-                                            </div>
-                                        )}
+                                <div ref={this.state.optionsRef} className={this.state.showCurrencyOptions? 'currency-options-wrapper':'hide-currency-menu'}>
+                                    {this.state.currencies.map(option => 
+                                        <div 
+                                            key={option.symbol} 
+                                            id={option.symbol}
+                                            onClick={this.handleCurrencySelect}
+                                            className='currency'>
+                                                {option.symbol + ' ' + option.label}
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                             <button 
-                                className='currency-toggle-btn' 
-                                onClick={this.toggleCurrencyMenu}>O</button>
+                                ref={this.state.toggleBtnRef}
+                                onClick={this.toggleCurrencyMenu}
+                                className='currency-toggle-btn'>O</button>
                         </div>
                     </div>
                 </nav>
