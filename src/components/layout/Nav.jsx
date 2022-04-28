@@ -33,10 +33,6 @@ class Nav extends Component {
             this.props.changeCategory({ category: target.id })
     }
 
-    toggleCurrencyMenu = () => {
-        this.setState({ showCurrencyOptions: !this.state.showCurrencyOptions })
-    }
-
     handleCurrencySelect = ({ target }) => {
         if (target.id !== this.props.activeCurrency)
             this.props.changeCurrency({ currency: target.id })
@@ -65,9 +61,7 @@ class Nav extends Component {
                             <CurrenciesMenu 
                                 activeCurrency={this.props.activeCurrency}
                                 currencies={this.state.currencies} 
-                                onCurrencySelect={this.handleCurrencySelect}
-                                onToggleOptions={this.toggleCurrencyMenu}
-                                showOptions={this.state.showCurrencyOptions} />
+                                onCurrencySelect={this.handleCurrencySelect}/>
                         </div>
                     </div>
                 </nav>

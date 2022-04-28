@@ -15,6 +15,10 @@ class CurrenciesMenu extends Component {
         document.removeEventListener('click', this.handleClickOutside)
     }
 
+    toggleCurrencyMenu = () => {
+        this.setState({ showCurrencyOptions: !this.state.showCurrencyOptions })
+    }
+
     handleClickOutside = ({ target }) => {
         if (!this.state.optionsRef.current.contains(target) && target !== this.state.toggleBtnRef.current)
             this.setState({ showCurrencyOptions: false })
@@ -25,7 +29,7 @@ class CurrenciesMenu extends Component {
             <>
                 <div className='currencies-wrapper'>
                     <p className='active-currency'>{this.props.activeCurrency}</p>
-                    <div ref={this.state.optionsRef} className={this.props.showOptions? 'currency-options-wrapper':'hide-currency-menu'}>
+                    <div ref={this.state.optionsRef} className={this.state.showCurrencyOptions? 'currency-options-wrapper':'hide-currency-menu'}>
                         {this.props.currencies.map(option => 
                             <div 
                                 key={option.symbol} 
@@ -39,7 +43,7 @@ class CurrenciesMenu extends Component {
                 </div>
                 <button 
                     ref={this.state.toggleBtnRef}
-                    onClick={this.props.onToggleOptions}
+                    onClick={this.toggleCurrencyMenu}
                     className='currency-toggle-btn'>O</button>
             </> 
         );
