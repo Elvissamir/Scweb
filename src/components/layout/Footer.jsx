@@ -11,7 +11,7 @@ class Footer extends Component {
                             <p>Scandiweb 2022</p>
                         </div>
                         <div className="bottom">
-                            <p>Junior Front end Developer</p>
+                            <p>Junior Front End Developer</p>
                             <p>Developed by Elvis Carrasco</p>
                         </div>
                     </div>
