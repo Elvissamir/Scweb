@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 class Nav extends Component {
     state = { 
         categories: [], 
-        currencies: [], 
+        currencies: [],
         showCurrencyOptions: false
     }
     
@@ -16,7 +16,7 @@ class Nav extends Component {
 
         if (!result.error) {
             const categories = result.categories.map(category => category.name)
-            const currencies = result.currencies.map(currency => currency.symbol)
+            const currencies = result.currencies.map(({symbol, label}) => ({ symbol, label }))
             this.setState({ categories, currencies })
         }
         else {
@@ -68,7 +68,14 @@ class Nav extends Component {
                         <div className="currencies-menu">
                             <p className='active-currency'>{this.props.activeCurrency}</p>
                             <div className='currencies-wrapper'>
-                                {}
+                                <p className='active-currency'>{this.props.activeCurrency}</p>
+                                {this.state.currencies.map(option => 
+                                    <p 
+                                        key={option.symbol}
+                                        className='currency'>
+                                        {`${option.symbol} ${option.label}`}
+                                    </p>    
+                                )}
                             </div>
                             <button 
                                 className='currency-toggle-btn' 
