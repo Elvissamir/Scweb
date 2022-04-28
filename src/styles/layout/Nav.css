@@ -35,6 +35,15 @@
     margin-left: 1em;
 }
 
+.menu-link:hover {
+    color: var(--brand-active);
+}
+
+.active-link {
+    color: var(--brand-active);
+    border-bottom: 0.2em var(--brand-active) solid;
+}
+
 .logo-container {
     display: flex;
     justify-content: center;
@@ -48,51 +57,34 @@
 
 .currencies-menu {
     align-items: flex-start;
+    position: relative;
     display: flex;
     justify-content: end;
     width: 40%;
 }
 
-.currencies-menu-content {
-    display: flex;
-    position: relative;
-}
-
-.menu-link:hover {
-    color: var(--brand-active);
-}
-
-.active-link {
-    color: var(--brand-active);
-    border-bottom: 0.2em var(--brand-active) solid;
-}
-
-.active-currency-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.active-currency {
-    font-weight: bolder;
-    margin: auto;
-}
-
-.hidden {
-    display: none;
-}
-
-.currency-options {
+.currencies-wrapper {
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 1.2em;
     position: absolute;
+    right: 1.5em;
 }
 
-.currency-option:nth-child(odd) {
-    padding: 1em 0;
+.currency {
+    display: flex;
+    justify-content: center;
+    width: 1.2em;
+}
+
+.active-currency {
+    font-weight: bolder;
+}
+
+.hide-currency {
+    display: none;
 }
 
 .currency-toggle-btn {

@@ -8,8 +8,8 @@ class Nav extends Component {
     state = { 
         categories: [], 
         currencies: [], 
-        currencyOptions: [],
-        showCurrencyOptions: false}
+        showCurrencyOptions: false
+    }
     
     async componentDidMount() {
         const result = await findCategoriesAndCurrencies()
@@ -18,8 +18,6 @@ class Nav extends Component {
             const categories = result.categories.map(category => category.name)
             const currencies = result.currencies.map(currency => currency.symbol)
             this.setState({ categories, currencies })
-
-            this.selectCurrencyOptions()
         }
         else {
             console.log('error')
@@ -30,8 +28,8 @@ class Nav extends Component {
         return category === this.props.activeCategory
     }
 
-    isActiveCurrency = (currency) => {
-        return currency === this.props.activeCurrency
+    isActiveCurrency = (symbol) => {
+        return symbol === this.props.activeCurrency
     }
 
     handleCategorySelect = ({ target }) => {
@@ -39,13 +37,7 @@ class Nav extends Component {
             this.props.changeCategory({ category: target.id })
     }
 
-    selectCurrencyOptions = () => {
-        const options = [...this.state.currencies].filter(currency => currency !== this.props.activeCurrency)
-        this.setState({ currencyOptions: options })
-    }
-
     toggleCurrencyMenu = () => {
-        this.selectCurrencyOptions()
         this.setState({ showCurrencyOptions: !this.state.showCurrencyOptions })
     }
 
@@ -74,19 +66,10 @@ class Nav extends Component {
                             <img src="/imgs/logo.svg" alt="logo" />
                         </div>
                         <div className="currencies-menu">
-                            <div className='currencies-menu-content'>
-                                <div className='active-currency-wrapper'>
-                                    <p className='active-currency'>
-                                        {this.props.activeCurrency}
-                                    </p>
-                                </div>
-                                <div className={this.state.showCurrencyOptions? 'currency-options' : 'hidden'}>    
-                                    {this.state.currencyOptions.map(option => 
-                                        <p className='currency-option' key={option}>{option}</p>    
-                                    )}
-                                </div>
+                            <p className='active-currency'>{this.props.activeCurrency}</p>
+                            <div className='currencies-wrapper'>
+                                {}
                             </div>
-
                             <button 
                                 className='currency-toggle-btn' 
                                 onClick={this.toggleCurrencyMenu}>O</button>

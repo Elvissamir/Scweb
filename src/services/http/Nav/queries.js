@@ -7,6 +7,7 @@ const CATEGORIES_AND_CURRENCIES = gql`
         }
         currencies {
             symbol
+            label
         }
     }
 `
