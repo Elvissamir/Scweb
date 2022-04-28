@@ -42,6 +42,7 @@ class Nav extends Component {
     }
 
     handleCurrencySelect = ({ target }) => {
+        console.log(target)
         if (target.id !== this.props.activeCurrency)
             this.props.changeCurrency({ currency: target.id })
     }
@@ -70,13 +71,12 @@ class Nav extends Component {
                                 <p className='active-currency'>{this.props.activeCurrency}</p>
                                 <div className='currency-options-wrapper'>
                                         {this.state.currencies.map(option => 
-                                            <div key={option.symbol} className='currency'>
-                                                <p className='symbol'>
-                                                    {option.symbol}
-                                                </p>
-                                                <p className='label'>
-                                                    {option.label}
-                                                </p>
+                                            <div 
+                                                key={option.symbol} 
+                                                id={option.symbol}
+                                                onClick={this.handleCurrencySelect}
+                                                className='currency'>
+                                                    {option.symbol + ' ' + option.label}
                                             </div>
                                         )}
                                 </div>
