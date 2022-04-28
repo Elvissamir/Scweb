@@ -66,16 +66,20 @@ class Nav extends Component {
                             <img src="/imgs/logo.svg" alt="logo" />
                         </div>
                         <div className="currencies-menu">
-                            <p className='active-currency'>{this.props.activeCurrency}</p>
                             <div className='currencies-wrapper'>
                                 <p className='active-currency'>{this.props.activeCurrency}</p>
-                                {this.state.currencies.map(option => 
-                                    <p 
-                                        key={option.symbol}
-                                        className='currency'>
-                                        {`${option.symbol} ${option.label}`}
-                                    </p>    
-                                )}
+                                <div className='currency-options-wrapper'>
+                                        {this.state.currencies.map(option => 
+                                            <div key={option.symbol} className='currency'>
+                                                <p className='symbol'>
+                                                    {option.symbol}
+                                                </p>
+                                                <p className='label'>
+                                                    {option.label}
+                                                </p>
+                                            </div>
+                                        )}
+                                </div>
                             </div>
                             <button 
                                 className='currency-toggle-btn' 
