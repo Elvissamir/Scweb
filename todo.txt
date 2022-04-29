@@ -19,3 +19,7 @@
  - The selected options of the product should be visible
 
 
+
+++++++++++++++++++++++++++++++++++++++++
+
+ADD ERROR HANDLING

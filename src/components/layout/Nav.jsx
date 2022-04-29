@@ -4,6 +4,7 @@ import { changeCategory } from '../../store/features/category/categorySlice';
 import { changeCurrency } from '../../store/features/currency/currencySlice'
 import { connect } from 'react-redux';
 import CurrenciesMenu from './CurrenciesMenu';
+import CategoriesMenu from './CategoriesMenu';
 
 class Nav extends Component {
     state = { 
@@ -24,10 +25,6 @@ class Nav extends Component {
         }
     }
 
-    isActiveCategory = (category) => {
-        return category === this.props.activeCategory
-    }
-
     handleCategorySelect = ({ target }) => {
         if (target.id !== this.props.activeCategory)
             this.props.changeCategory({ category: target.id })
@@ -43,17 +40,10 @@ class Nav extends Component {
             <div className='nav-container'>
                 <nav className='nav'>
                     <div className='nav-content'>
-                        <ul className='menu'>
-                            {this.state.categories.map(category => 
-                                <li 
-                                    id={category}
-                                    key={category} 
-                                    onClick={ this.handleCategorySelect }
-                                    className={this.isActiveCategory(category)? 'menu-link active-link': 'menu-link'}>
-                                    { category.toUpperCase() }
-                                </li>
-                            )}
-                        </ul>
+                        <CategoriesMenu
+                            activeCategory={this.props.activeCategory}
+                            categories={this.state.categories}
+                            onCategorySelect={this.handleCategorySelect} />
                         <div className="logo-container">
                             <img src="/imgs/logo.svg" alt="logo" />
                         </div>
