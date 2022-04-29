@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { findCategories } from '../services/http/ProductListing/ProductListingPage'
+import { connect } from 'react-redux';
 
-class ProductPage extends Component {
+class ProductListingPage extends Component {
     state = { 
         categories: [], 
         activeCategory: null,
@@ -37,7 +38,9 @@ class ProductPage extends Component {
 
     renderContent() {
         return (
-           <p>Hola</p>
+            <div>
+                <p>{ this.props.activeCategory }</p>
+            </div>
         )
     }
 
@@ -57,5 +60,10 @@ class ProductPage extends Component {
         )
     }
 }
- 
-export default ProductPage;
+
+const mapStateToProps = state => ({
+    activeCategory: state.category.activeCategory,
+    activeCurrency: state.currency.activeCurrency
+})
+
+export default connect(mapStateToProps)(ProductListingPage);
