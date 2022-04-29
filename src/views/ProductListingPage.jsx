@@ -13,7 +13,6 @@ class ProductListingPage extends Component {
     async componentDidMount() {
         const result = await findProductsByCategory()
         if (!result.error) {
-            console.log(result)
             const { products } = result.category
             this.setState({ products })
             this.setState({ hasData: true })
@@ -51,6 +50,9 @@ class ProductListingPage extends Component {
                     {this.state.products.map(product =>
                         <div key={product.id} className='product-wrapper'>
                             <div className='product'>
+                                <div className='product-image-wrapper'>
+                                    <img className='main-product-image' src={product.gallery[0]} alt="" />
+                                </div>
                                 <p id={product.id} className='product-title'>
                                     {product.brand + " " + product.name}
                                 </p>  
