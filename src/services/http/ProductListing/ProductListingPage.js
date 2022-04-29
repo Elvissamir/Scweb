@@ -1,10 +1,10 @@
 import requestHandler from '../requestHandler'
-import { FIND_CATEGORIES } from '../ProductListing/queries'
+import { FIND_PRODUCTS_BY_CATEGORY } from '../ProductListing/queries'
 
-const findCategories = () => {
-    return requestHandler(FIND_CATEGORIES)
+const findProductsByCategory = () => {
+    return requestHandler(FIND_PRODUCTS_BY_CATEGORY)
 }
 
 export {
-    findCategories,
+    findProductsByCategory,
 }

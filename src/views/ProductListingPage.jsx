@@ -1,29 +1,34 @@
 import React, { Component } from 'react';
-import { findCategories } from '../services/http/ProductListing/ProductListingPage'
 import { connect } from 'react-redux';
+import { findProductsByCategory } from '../services/http/ProductListing/ProductListingPage';
 
 class ProductListingPage extends Component {
     state = { 
-        categories: [], 
-        activeCategory: null,
         loading: true,
         hasData: false,
-        error: false
+        error: false,
+        products: []
     }
 
     async componentDidMount() {
-        const result = await findCategories()
+        const result = await findProductsByCategory()
         if (!result.error) {
-            const categories = result.categories.map(category => category.name.toUpperCase())
-            this.setState({ categories, hasData: true, loading: false, activeCategory: categories[0] })
-        }
-        else {
-            this.setState({ error:true, loading: false })
+            console.log(result)
+            const { products } = result.category
+            this.setState({ products })
+            this.setState({ hasData: true })
+            console.log(products)
         }
     }
 
     handleCategoryChange = ({ target }) => {
         this.setState({ activeCategory: target.textContent })
+    }
+
+    selectPriceToShow = prices => {
+        const result = prices.filter(price => price.currency.symbol === this.props.activeCurrency)
+        const data = result[0]
+        return <p>{data.currency.symbol + data.amount}</p>
     }
 
     renderBlock() {
@@ -38,9 +43,23 @@ class ProductListingPage extends Component {
 
     renderContent() {
         return (
-            <div>
-                <p>{ this.props.activeCategory }</p>
-            </div>
+            <>
+                <div className='category-title'>
+                    <p >{ this.props.activeCategory.toUpperCase() }</p>
+                </div>
+                <div className='products-container'>
+                    {this.state.products.map(product =>
+                        <div key={product.id} className='product-wrapper'>
+                            <div className='product'>
+                                <p id={product.id} className='product-title'>
+                                    {product.brand + " " + product.name}
+                                </p>  
+                                {this.selectPriceToShow(product.prices)}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </>
         )
     }
 
