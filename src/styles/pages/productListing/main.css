@@ -1,6 +1,32 @@
-.app-content {  
-    min-height: 100vh;
-    margin: auto;
-    margin-top: 5em;
-    width: var(--layout-x-width);
+.plp-products-container {
+
+}
+
+.plp-product-wrapper {
+
+}
+
+.plp-product {
+
+}
+
+.plp-product-title {
+
+}
+
+.plp-product-price {
+
+}
+
+.plp-product-image-wrapper {
+
+}
+
+.plp-main-product-image {
+    height: 358px;
+    width: 356px;
+}
+
+.plp-main-product-image {
+
 }

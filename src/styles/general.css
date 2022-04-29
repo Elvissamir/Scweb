@@ -16,3 +16,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.app-content {  
+  min-height: 100vh;
+  margin: auto;
+  margin-top: 5em;
+  width: var(--layout-x-width);
+}

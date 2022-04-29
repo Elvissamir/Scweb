@@ -27,7 +27,7 @@ class ProductListingPage extends Component {
     selectPriceToShow = prices => {
         const result = prices.filter(price => price.currency.symbol === this.props.activeCurrency)
         const data = result[0]
-        return <p>{data.currency.symbol + data.amount}</p>
+        return <p className='plp-product-price'>{data.currency.symbol + data.amount}</p>
     }
 
     renderBlock() {
@@ -48,12 +48,12 @@ class ProductListingPage extends Component {
                 </div>
                 <div className='products-container'>
                     {this.state.products.map(product =>
-                        <div key={product.id} className='product-wrapper'>
-                            <div className='product'>
-                                <div className='product-image-wrapper'>
-                                    <img className='main-product-image' src={product.gallery[0]} alt="" />
+                        <div key={product.id} className='plp-product-wrapper'>
+                            <div className='plp-product'>
+                                <div className='plp-product-image-wrapper'>
+                                    <img className='plp-main-product-image' src={product.gallery[0]} alt="" />
                                 </div>
-                                <p id={product.id} className='product-title'>
+                                <p id={product.id} className='plp-product-title'>
                                     {product.brand + " " + product.name}
                                 </p>  
                                 {this.selectPriceToShow(product.prices)}
