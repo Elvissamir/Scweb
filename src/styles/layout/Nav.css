@@ -107,5 +107,14 @@
 }
 
 .currency-toggle-btn {
+    background-color: white;
+    border: 0;
+    display: flex;
     margin-left: 1em;
+    width: 1.2em;
+    height: 1.5em;
+}
+
+.arrow-toggle-currencies {
+    pointer-events: none;
 }

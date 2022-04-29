@@ -42,9 +42,13 @@ class CurrenciesMenu extends Component {
                     </div>
                 </div>
                 <button 
+                    className='currency-toggle-btn'  
                     ref={this.state.toggleBtnRef}
-                    onClick={this.toggleCurrencyMenu}
-                    className='currency-toggle-btn'>O</button>
+                    onClick={this.toggleCurrencyMenu}>
+                        <img 
+                            src={this.state.showCurrencyOptions? '/imgs/arrow-down.svg' : '/imgs/arrow-up.svg'} 
+                            className='arrow-toggle-currencies'/>
+                </button>
             </> 
         );
     }
