@@ -7,6 +7,7 @@
 ### PRODUCT LISTING PAGE (CATEGORY PAGE)
  - Filtering products by category (All, Tech, Clothes)
  - Button to add product to cart, should select attributes first
+ - Show if product is out of stock
 
  
 ### PRODUCT DESCRIPTION PAGE 
