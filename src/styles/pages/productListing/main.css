@@ -37,6 +37,10 @@
     box-shadow: 0px 0px 40px lightgray;
 }
 
+.plp-product-wrapper:hover .plp-shopping-btn {
+    display: flex;
+}
+
 .plp-shopping-btn-wrapper {
     position: absolute;
     top: -50%;
@@ -46,7 +50,7 @@
 .plp-shopping-btn {
     align-items: center;
     background-color: var(--brand-active);
-    display: flex;
+    display: none;
     justify-content: center;
     height: 50px;
     width: 50px;
