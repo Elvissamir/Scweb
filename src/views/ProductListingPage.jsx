@@ -13,7 +13,16 @@ class ProductListingPage extends Component {
     }
 
     async componentDidMount() {
-        const result = await findProductsByCategory()
+        await this.fetchProducts()
+    }
+
+   async componentDidUpdate(prevProps) {
+        if (prevProps.activeCategory !== this.props.activeCategory)
+            await this.fetchProducts()
+   }
+
+    fetchProducts = async () => {
+        const result = await findProductsByCategory(this.props.activeCategory)
         if (!result.error) {
             const { products } = result.category
             this.setState({ products })
