@@ -27,7 +27,6 @@ class ProductListingPage extends Component {
             const { products } = result.category
             this.setState({ products })
             this.setState({ hasData: true })
-            console.log(products)
         }
     }
 
