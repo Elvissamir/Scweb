@@ -46,17 +46,19 @@ class ProductListingPage extends Component {
                 <div className='category-title'>
                     <p >{ this.props.activeCategory.toUpperCase() }</p>
                 </div>
-                <div className='products-container'>
+                <div className='plp-products-container'>
                     {this.state.products.map(product =>
                         <div key={product.id} className='plp-product-wrapper'>
                             <div className='plp-product'>
                                 <div className='plp-product-image-wrapper'>
                                     <img className='plp-main-product-image' src={product.gallery[0]} alt="" />
                                 </div>
-                                <p id={product.id} className='plp-product-title'>
-                                    {product.brand + " " + product.name}
-                                </p>  
-                                {this.selectPriceToShow(product.prices)}
+                                <div className='plp-product-info'>
+                                    <p id={product.id} className='plp-product-title'>
+                                        {product.brand + " " + product.name}
+                                    </p>  
+                                    {this.selectPriceToShow(product.prices)}
+                                </div>
                             </div>
                         </div>
                     )}
