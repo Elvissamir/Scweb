@@ -47,11 +47,18 @@ class Nav extends Component {
                         <div className="logo-container">
                             <img src="/imgs/logo.svg" alt="logo" />
                         </div>
-                        <div className="currencies-menu">
-                            <CurrenciesMenu 
-                                activeCurrency={this.props.activeCurrency}
-                                currencies={this.state.currencies} 
-                                onCurrencySelect={this.handleCurrencySelect}/>
+                        <div className='right-wrapper'>
+                            <div className="currencies-menu">
+                                <CurrenciesMenu 
+                                    activeCurrency={this.props.activeCurrency}
+                                    currencies={this.state.currencies} 
+                                    onCurrencySelect={this.handleCurrencySelect}/>
+                            </div>
+                            <div className='cart-menu-wrapper'>
+                                <button className='cart-btn'>
+                                    <img className='cart-btn-svg' src="/imgs/shopping.svg" alt="" />
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </nav>
