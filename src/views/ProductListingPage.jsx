@@ -25,9 +25,8 @@ class ProductListingPage extends Component {
     }
 
     selectPriceToShow = prices => {
-        const result = prices.filter(price => price.currency.symbol === this.props.activeCurrency)
-        const data = result[0]
-        return <p className='plp-product-price'>{data.currency.symbol + data.amount}</p>
+        const price = prices.find(price => price.currency.symbol === this.props.activeCurrency)
+        return <p className='plp-product-price'>{price.currency.symbol + price.amount}</p>
     }
 
     renderBlock() {
