@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import routes from '../routes';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { findProductsByCategory } from '../services/http/ProductListing/ProductListingPage';
 
 class ProductListingPage extends Component {
@@ -53,6 +55,11 @@ class ProductListingPage extends Component {
                                     <img className='plp-main-product-image' src={product.gallery[0]} alt="" />
                                 </div>
                                 <div className='plp-product-info'>
+                                    <div className='plp-shopping-btn-wrapper'>
+                                        <Link className='plp-shopping-btn' to={routes.product+product.id}>
+                                            <img src="/imgs/shopping-white.svg" alt="" />
+                                        </Link>
+                                    </div>
                                     <p id={product.id} className='plp-product-title'>
                                         {product.brand + " " + product.name}
                                     </p>  
