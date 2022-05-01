@@ -4,12 +4,15 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { findProductsByCategory } from '../services/http/ProductListing/ProductListingPage';
 import { addCartProduct } from '../store/features/cart/cartSlice';
+import { activateModal } from '../store/features/modal/modalSlice';
 
 class ProductListingPage extends Component {
     state = { 
         loading: true,
         hasData: false,
         error: false,
+        showProductWindow: true,
+        currentProduct: {},
         products: []
     }
 
@@ -36,11 +39,18 @@ class ProductListingPage extends Component {
         this.setState({ activeCategory: target.textContent })
     }
 
+    showProductMenu = product => {
+        console.log('Show product menu')
+        // document.body.style.overflow = "hidden"
+        this.props.activateModal({ active: true })
+        this.setState({ currentProduct: product, showProductWindow: true })
+    }
+
     shouldAddToCart = product => {
         if (product.attributes.length === 0)
             this.handleAddToCart(product)
-        else 
-            console.log('Pop up')
+        else
+            this.showProductMenu(product)
     }
 
     handleAddToCart = product => {
@@ -65,8 +75,10 @@ class ProductListingPage extends Component {
     renderContent() {
         return (
             <>  
-                <div className='plp-popup'>
-                    
+                <div className='plp-popup-wrapper'>
+                    <div className={this.state.showProductWindow? 'plp-popup':'hide'}>
+                        <p>{this.state.currentProduct.name}</p>
+                    </div>
                 </div>
                 <div className='category-title'>
                     <p >{ this.props.activeCategory.toUpperCase() }</p>
@@ -83,7 +95,7 @@ class ProductListingPage extends Component {
                                 </div>
                                 <div className='plp-product-info'>
                                     <div className='plp-shopping-btn-wrapper'>
-                                        <button onClick={() => this.handleAddToCart(product)} className={product.inStock? 'plp-shopping-btn':'hide'}>
+                                        <button onClick={() => this.shouldAddToCart(product)} className={product.inStock? 'plp-shopping-btn':'hide'}>
                                             <img src="/imgs/shopping-white.svg" alt="" />
                                         </button>
                                     </div>
@@ -120,11 +132,13 @@ class ProductListingPage extends Component {
 const mapStateToProps = state => ({
     activeCategory: state.category.activeCategory,
     activeCurrency: state.currency.activeCurrency,
-    cart: state.cart.products
+    cart: state.cart.products,
+    showModal: state.modal.activeModal
 })
 
 const mapDispatchToProps = dispatch => ({
     addCartProduct: (payload) => dispatch(addCartProduct(payload)),
+    activateModal: (payload) => dispatch(activateModal(payload))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductListingPage);

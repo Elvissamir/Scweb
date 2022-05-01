@@ -8,12 +8,13 @@ export const modalSlice = createSlice({
     name: 'modal',
     initialState,
     reducers: {
-        activeModal: (state, action) => {
+        activateModal: (state, action) => {
+            console.log(action)
             state.activeModal = action.payload.active
         }
     } 
 })
 
-export const { activeModal } = modalSlice.actions
+export const { activateModal } = modalSlice.actions
 
 export default modalSlice.reducer

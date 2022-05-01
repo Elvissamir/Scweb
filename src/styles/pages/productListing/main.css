@@ -1,5 +1,22 @@
+.content-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.plp-popup-wrapper {
+    display: flex;
+    position: fixed;
+    width: var(--layout-x-width);
+    z-index: 10000;
+}
+
 .plp-popup {
-    
+    display: flex;
+    height: auto;
+    background-color: white;
+    margin: auto;
+    width: 50%;
+    z-index: 6000;
 }
 
 .category-title {
