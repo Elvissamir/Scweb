@@ -11,7 +11,7 @@ class ProductListingPage extends Component {
         loading: true,
         hasData: false,
         error: false,
-        showProductWindow: true,
+        showProductWindow: false,
         currentProduct: {},
         products: []
     }
@@ -65,6 +65,36 @@ class ProductListingPage extends Component {
         return <p className='plp-product-price'>{price.currency.symbol + price.amount}</p>
     }
 
+    renderPopup = () => {
+        if (this.state.currentProduct && this.state.showProductWindow) {
+            return (
+                <div className={this.state.showProductWindow? 'plp-popup':'hide'}>
+                    <div className='plp-popup-top'>
+                        <button onClick={this.closeProductMenu} className='plp-popup-close-btn'>X</button>
+                    </div>
+                    <div className='plp-popup-content'>
+                        <div className='plp-popup-img-wrapper'>
+                            <img src={this.state.currentProduct.gallery[0]} alt="" />
+                        </div>
+                        <div className='plp-popup-details'>
+                            <p className='plp-popup-title'>{this.state.currentProduct.brand + " - " + this.state.currentProduct.name}</p>
+                            <div>
+                                {this.state.currentProduct && this.state.currentProduct.attributes.map(attribute => 
+                                    <div key={attribute.name} className='plp-popup-attribute'>
+                                        <p className='attribute-name'>{attribute.name.toUpperCase()}:</p>
+                                        <div>
+                                            { this.renderAttributeOptions() }
+                                        </div>
+                                    </div>    
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+    }
+
     renderBlock() {
         if (!this.state.error) {
             if (!this.state.hasData)
@@ -79,12 +109,7 @@ class ProductListingPage extends Component {
         return (
             <>  
                 <div className='plp-popup-wrapper'>
-                    <div className={this.state.showProductWindow? 'plp-popup':'hide'}>
-                        <div className='plp-popup-top'>
-                            <p className='plp-popup-title'>{this.state.currentProduct.brand + " - " + this.state.currentProduct.name}</p>
-                            <button onClick={this.closeProductMenu} className='plp-popup-close-btn'>X</button>
-                        </div>
-                    </div>
+                    { this.renderPopup() }
                 </div>
                 <div className='category-title'>
                     <p >{ this.props.activeCategory.toUpperCase() }</p>

@@ -12,12 +12,26 @@
 
 .plp-popup {
     display: flex;
+    flex-direction: column;
     height: auto;
     background-color: white;
     margin: auto;
-    padding: 2em;
+    padding: 3em 2em 4em 2em;
     width: 100%;
     z-index: 6000;
+}
+
+.plp-popup-content {
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-around;
+}
+
+.plp-popup-img-wrapper {
+    display: flex;
+    height: 338px;
+    width: 356px;
+    box-shadow: 0px 0px 5px lightgray;
 }
 
 .plp-popup-top {
