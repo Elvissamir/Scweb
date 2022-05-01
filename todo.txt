@@ -7,7 +7,9 @@
 ### PRODUCT LISTING PAGE (CATEGORY PAGE)
  - Filtering products by category (All, Tech, Clothes)-------------------READY
  - Button to add product to cart, should select attributes first
- - Show if product is out of stock
+ - Show if product is out of stock --------------------------------------READY
+ - Show popup if clicked the green button, if the product has no attributes, add to the cart
+ else show the attributes in the popup
 
  
 ### PRODUCT DESCRIPTION PAGE 

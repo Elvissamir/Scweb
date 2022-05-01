@@ -2,18 +2,17 @@ import { Component } from 'react';
 import Nav from './components/layout/Nav'
 import Footer from './components/layout/Footer'
 import Router from './components/Router';
-import store from './store/store';
-import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
 
 class App extends Component { 
   render() {
     return (
-      <Provider store={store}>
-        <div className="App">
-            <div className='app-container'>
-              <div className='app-nav'>
-                <Nav />
-              </div>
+      <div className="App">
+          <div className='app-container'>
+            <div className='app-nav'>
+              <Nav />
+            </div>
+            <div className=''>
               <div className='app-content'>
                 <Router />
               </div>
@@ -21,10 +20,14 @@ class App extends Component {
                 <Footer />
               </div>
             </div>
-        </div>
-      </Provider>
+          </div>
+      </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  showModal: state.modal.activeModal
+})
+
+export default connect(mapStateToProps)(App);

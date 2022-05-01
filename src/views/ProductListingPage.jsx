@@ -52,7 +52,10 @@ class ProductListingPage extends Component {
 
     renderContent() {
         return (
-            <>
+            <>  
+                <div className='plp-popup'>
+                    
+                </div>
                 <div className='category-title'>
                     <p >{ this.props.activeCategory.toUpperCase() }</p>
                 </div>
