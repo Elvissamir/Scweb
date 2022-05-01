@@ -24,3 +24,7 @@ code {
   margin-bottom: 5em;
   width: var(--layout-x-width);
 }
+
+.hide {
+  display: none;
+}

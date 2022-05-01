@@ -1,11 +1,11 @@
 ### IN ALL PAGES
  - Add or remove products and change their amounts in cart overlay
  - The selected options of the product should be visible
- - Ability to change the currency for all pages
+ - Ability to change the currency for all pages -------------------------READY
 
 
 ### PRODUCT LISTING PAGE (CATEGORY PAGE)
- - Filtering products by category (All, Tech, Clothes)
+ - Filtering products by category (All, Tech, Clothes)-------------------READY
  - Button to add product to cart, should select attributes first
  - Show if product is out of stock
 

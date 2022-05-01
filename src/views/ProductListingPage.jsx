@@ -14,6 +14,7 @@ class ProductListingPage extends Component {
 
     async componentDidMount() {
         await this.fetchProducts()
+        console.log(this.state.products)
     }
 
    async componentDidUpdate(prevProps) {
@@ -58,13 +59,16 @@ class ProductListingPage extends Component {
                 <div className='plp-products-container'>
                     {this.state.products.map(product =>
                         <div key={product.id} className='plp-product-wrapper'>
+                            <div className={product.inStock? 'hide': 'plp-out-of-stock'}>
+                                <p>OUT OF STOCK</p>
+                            </div>
                             <div className='plp-product'>
                                 <div className='plp-product-image-wrapper'>
                                     <img className='plp-main-product-image' src={product.gallery[0]} alt="" />
                                 </div>
                                 <div className='plp-product-info'>
                                     <div className='plp-shopping-btn-wrapper'>
-                                        <Link className='plp-shopping-btn' to={routes.getProductRoute(product.id)}>
+                                        <Link className={product.inStock? 'plp-shopping-btn':'hide'} to={routes.getProductRoute(product.id)}>
                                             <img src="/imgs/shopping-white.svg" alt="" />
                                         </Link>
                                     </div>
