@@ -61,7 +61,7 @@
     align-items: flex-start;
     position: relative;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .currencies-wrapper {
@@ -125,7 +125,7 @@
 .cart-menu-wrapper {
     display: flex;
     align-items: flex-start;
-    justify-content: end;
+    justify-content: flex-end;
     margin-left: 2em;
 }
 

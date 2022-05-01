@@ -17,10 +17,10 @@ class ProductListingPage extends Component {
         console.log(this.state.products)
     }
 
-   async componentDidUpdate(prevProps) {
+    async componentDidUpdate(prevProps) {
         if (prevProps.activeCategory !== this.props.activeCategory)
             await this.fetchProducts()
-   }
+    }
 
     fetchProducts = async () => {
         const result = await findProductsByCategory(this.props.activeCategory)
@@ -33,6 +33,14 @@ class ProductListingPage extends Component {
 
     handleCategoryChange = ({ target }) => {
         this.setState({ activeCategory: target.textContent })
+    }
+
+    handleAddToCart = product => {
+        console.log(product)
+        if (product.attributes.length === 0)
+            console.log('Add directly')
+        else 
+            console.log('Pop up')
     }
 
     selectPriceToShow = prices => {
@@ -71,7 +79,7 @@ class ProductListingPage extends Component {
                                 </div>
                                 <div className='plp-product-info'>
                                     <div className='plp-shopping-btn-wrapper'>
-                                        <button className={product.inStock? 'plp-shopping-btn':'hide'}>
+                                        <button onClick={() => this.handleAddToCart(product)} className={product.inStock? 'plp-shopping-btn':'hide'}>
                                             <img src="/imgs/shopping-white.svg" alt="" />
                                         </button>
                                     </div>
