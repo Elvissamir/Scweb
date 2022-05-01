@@ -18,7 +18,7 @@ class ProductListingPage extends Component {
 
     async componentDidMount() {
         await this.fetchProducts()
-        console.log(this.state.products)
+        // console.log(this.state.products)
     }
 
     async componentDidUpdate(prevProps) {
@@ -47,6 +47,28 @@ class ProductListingPage extends Component {
     closeProductMenu = () => {
         this.props.activateModal({ active: false })
         this.setState({ showProductWindow: false })
+    }
+
+    renderAttributeOptions = attribute => {
+        console.log(attribute)
+        if (attribute.type === 'text') {
+            return (
+                <div>
+                    {attribute.items.map(option => 
+                        <p key={option.value}>{option.value}</p>
+                    )}
+                </div>
+            )
+        }
+        else {
+            return (
+                <div>
+                    {attribute.items.map(option => 
+                        <div key={option.value} style={{backgroundColor: option.value, width: "40px", height: "40px"}}></div>
+                    )}
+                </div>
+            )
+        }
     }
 
     shouldAddToCart = product => {
@@ -83,7 +105,7 @@ class ProductListingPage extends Component {
                                     <div key={attribute.name} className='plp-popup-attribute'>
                                         <p className='attribute-name'>{attribute.name.toUpperCase()}:</p>
                                         <div>
-                                            { this.renderAttributeOptions() }
+                                            { this.renderAttributeOptions(attribute) }
                                         </div>
                                     </div>    
                                 )}
