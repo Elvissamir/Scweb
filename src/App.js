@@ -13,9 +13,7 @@ class App extends Component {
               <Nav />
             </div>
             <div className='app-main'>
-              <div className='app-modal'>
-
-              </div>
+              <div className={this.props.showModal? 'app-modal':'hide'}></div>
               <div className='app-content'>
                 <Router />
               </div>

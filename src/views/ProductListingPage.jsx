@@ -71,13 +71,13 @@ class ProductListingPage extends Component {
                                 </div>
                                 <div className='plp-product-info'>
                                     <div className='plp-shopping-btn-wrapper'>
-                                        <Link className={product.inStock? 'plp-shopping-btn':'hide'} to={routes.getProductRoute(product.id)}>
+                                        <button className={product.inStock? 'plp-shopping-btn':'hide'}>
                                             <img src="/imgs/shopping-white.svg" alt="" />
-                                        </Link>
+                                        </button>
                                     </div>
-                                    <p id={product.id} className='plp-product-title'>
+                                    <Link id={product.id} className='plp-product-title' to={routes.getProductRoute(product.id)}>
                                         {product.brand + " " + product.name}
-                                    </p>  
+                                    </Link>  
                                     {this.selectPriceToShow(product.prices)}
                                 </div>
                             </div>

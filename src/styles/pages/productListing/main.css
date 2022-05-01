@@ -57,6 +57,8 @@
     align-items: center;
     background-color: var(--brand-active);
     display: none;
+    border: none;
+    cursor: pointer;
     justify-content: center;
     height: 50px;
     width: 50px;
