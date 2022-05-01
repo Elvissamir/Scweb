@@ -3,6 +3,7 @@ import routes from '../routes';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { findProductsByCategory } from '../services/http/ProductListing/ProductListingPage';
+import { addCartProduct } from '../store/features/cart/cartSlice';
 
 class ProductListingPage extends Component {
     state = { 
@@ -35,12 +36,15 @@ class ProductListingPage extends Component {
         this.setState({ activeCategory: target.textContent })
     }
 
-    handleAddToCart = product => {
-        console.log(product)
+    shouldAddToCart = product => {
         if (product.attributes.length === 0)
-            console.log('Add directly')
+            this.handleAddToCart(product)
         else 
             console.log('Pop up')
+    }
+
+    handleAddToCart = product => {
+        this.props.addCartProduct({ product })
     }
 
     selectPriceToShow = prices => {
@@ -115,7 +119,12 @@ class ProductListingPage extends Component {
 
 const mapStateToProps = state => ({
     activeCategory: state.category.activeCategory,
-    activeCurrency: state.currency.activeCurrency
+    activeCurrency: state.currency.activeCurrency,
+    cart: state.cart.products
 })
 
-export default connect(mapStateToProps)(ProductListingPage);
+const mapDispatchToProps = dispatch => ({
+    addCartProduct: (payload) => dispatch(addCartProduct(payload)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductListingPage);
