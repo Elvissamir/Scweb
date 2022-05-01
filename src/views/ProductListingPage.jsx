@@ -64,7 +64,7 @@ class ProductListingPage extends Component {
                                 </div>
                                 <div className='plp-product-info'>
                                     <div className='plp-shopping-btn-wrapper'>
-                                        <Link className='plp-shopping-btn' to={routes.product+product.id}>
+                                        <Link className='plp-shopping-btn' to={routes.getProductRoute(product.id)}>
                                             <img src="/imgs/shopping-white.svg" alt="" />
                                         </Link>
                                     </div>

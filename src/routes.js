@@ -1,5 +1,5 @@
 const categories = '/categories'
-const products = '/products/'
+const products = '/products'
 const cart = '/cart'
 const getCategoryRoute = categoryId => {
     return categories + '/' + categoryId
