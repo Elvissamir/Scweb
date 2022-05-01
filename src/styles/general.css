@@ -17,12 +17,24 @@ code {
     monospace;
 }
 
+.app-main {
+  position: relative;
+}
+
+.app-modal {
+  position: fixed;
+  background-color: rgba(10, 10, 10, 0.7);
+  height: 100vh;
+  width: 100vw;
+  z-index: 5000;
+}
+
 .app-content {  
   position: relative;
   min-height: 100vh;
   margin: auto;
-  margin-top: 5em;
-  margin-bottom: 5em;
+  padding-top: 5em;
+  padding-bottom: 5em;
   width: var(--layout-x-width);
 }
 

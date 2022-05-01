@@ -12,7 +12,10 @@ class App extends Component {
             <div className='app-nav'>
               <Nav />
             </div>
-            <div className=''>
+            <div className='app-main'>
+              <div className='app-modal'>
+
+              </div>
               <div className='app-content'>
                 <Router />
               </div>
