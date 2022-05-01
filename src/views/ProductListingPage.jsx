@@ -40,10 +40,13 @@ class ProductListingPage extends Component {
     }
 
     showProductMenu = product => {
-        console.log('Show product menu')
-        // document.body.style.overflow = "hidden"
         this.props.activateModal({ active: true })
         this.setState({ currentProduct: product, showProductWindow: true })
+    }
+
+    closeProductMenu = () => {
+        this.props.activateModal({ active: false })
+        this.setState({ showProductWindow: false })
     }
 
     shouldAddToCart = product => {
@@ -77,7 +80,10 @@ class ProductListingPage extends Component {
             <>  
                 <div className='plp-popup-wrapper'>
                     <div className={this.state.showProductWindow? 'plp-popup':'hide'}>
-                        <p>{this.state.currentProduct.name}</p>
+                        <div className='plp-popup-top'>
+                            <p className='plp-popup-title'>{this.state.currentProduct.brand + " - " + this.state.currentProduct.name}</p>
+                            <button onClick={this.closeProductMenu} className='plp-popup-close-btn'>X</button>
+                        </div>
                     </div>
                 </div>
                 <div className='category-title'>

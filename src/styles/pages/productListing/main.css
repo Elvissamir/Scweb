@@ -15,8 +15,39 @@
     height: auto;
     background-color: white;
     margin: auto;
-    width: 50%;
+    padding: 2em;
+    width: 100%;
     z-index: 6000;
+}
+
+.plp-popup-top {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.plp-popup-title {
+    font-size: 1.2em;
+}
+
+.plp-popup-close-btn {
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    cursor: pointer;
+    padding: 1em;
+    margin-left: auto;
+    height: 40px;
+    width: 40px;
+}
+
+.plp-popup-close-btn:hover {
+    background-color: rgba(228, 33, 33, 0.8);
 }
 
 .category-title {
