@@ -63,19 +63,22 @@ class ProductListingPage extends Component {
         this.setState({ currentProduct: product })
     }
 
-    renderAttributeOptions = (attribute, options) => {
-        console.log('attribute', attribute)
-        console.log('options', options)
-
+    selectAttributeOptionCss = (attribute, option, productOptions) => {
         const baseCss = 'attribute-option'
         const swatchCss = 'option-swatch'
         const textCss = 'option-text'
 
-        let attributeCss = ''
-        if (attribute.type === 'text')
-            attributeCss = `${baseCss} ${textCss}`
+        const attributeCss = attribute.type === 'text'? `${baseCss} ${textCss}` : `${baseCss} ${swatchCss}`
+
+        if (productOptions && productOptions[attribute.name] === option.value)
+            return (attribute.type === 'text'? attributeCss + ' attribute-selected-text': attributeCss + ' attribute-selected-swatch')
         else 
-            attributeCss = `${baseCss} ${swatchCss}`
+            return attributeCss
+    }
+
+    renderAttributeOptions = (attribute, productOptions) => {
+        console.log('attribute', attribute)
+        console.log('options', productOptions)
 
         return (
             <div className='attribute-options-wrapper'>
@@ -83,7 +86,7 @@ class ProductListingPage extends Component {
                     <button 
                         onClick={this.addAttributeValue(attribute.name, option.value)}
                         key={option.value} 
-                        className={ options && options[attribute.name] === option.value? 'attribute-selected-option ' + attributeCss : attributeCss}
+                        className={this.selectAttributeOptionCss(attribute, option, productOptions)}
                         style={attribute.type === 'swatch'? {backgroundColor: option.value} : {}}>
                             {attribute.type !== 'swatch' && option.value}
                     </button>
@@ -117,7 +120,7 @@ class ProductListingPage extends Component {
                     </div>
                     <div className='plp-popup-content'>
                         <div className='plp-popup-img-wrapper'>
-                            <img src={this.state.currentProduct.gallery[0]} alt="" />
+                            <img className='plp-popup-img' src={this.state.currentProduct.gallery[0]} alt="" />
                         </div>
                         <div className='plp-popup-details'>
                             <p className='plp-popup-title'>{this.state.currentProduct.brand + " - " + this.state.currentProduct.name}</p>

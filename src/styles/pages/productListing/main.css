@@ -16,7 +16,7 @@
     height: auto;
     background-color: white;
     margin: auto;
-    padding: 3em 2em 4em 2em;
+    padding: 3em 2em 5em 2em;
     width: 100%;
     z-index: 6000;
 }
@@ -29,9 +29,14 @@
 
 .plp-popup-img-wrapper {
     display: flex;
-    height: 338px;
-    width: 356px;
+    height: 400px;
+    width: 500px;
     box-shadow: 0px 0px 5px lightgray;
+}
+
+.plp-popup-img {
+    height: 100%;
+    width: 100%;
 }
 
 .plp-popup-top {
@@ -42,6 +47,7 @@
 
 .plp-popup-title {
     font-size: 1.2em;
+    font-weight: bold;
 }
 
 .plp-popup-close-btn {
@@ -188,6 +194,11 @@
     margin-left: 1em;
 }
 
-.attribute-selected-option {
+.attribute-selected-text, .attribute-selected-swatch {
     border: 4px var(--brand-active) solid;
+}
+
+.attribute-selected-text {
+    background-color: black;
+    color: white;
 }
