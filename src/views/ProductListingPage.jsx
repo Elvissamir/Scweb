@@ -18,7 +18,6 @@ class ProductListingPage extends Component {
 
     async componentDidMount() {
         await this.fetchProducts()
-        // console.log(this.state.products)
     }
 
     async componentDidUpdate(prevProps) {
@@ -49,13 +48,28 @@ class ProductListingPage extends Component {
         this.setState({ showProductWindow: false })
     }
 
+    addAttributeValue = (attributeName, value) => e => {
+        console.log('the attribute name', attributeName)
+        console.log('the attribute value', value)
+        const product = {...this.state.currentProduct}
+
+        if (product.options)
+            product.options[attributeName] = value
+        else 
+            product.options = { [attributeName]: value }
+        this.setState({ currentProduct: product })
+    }
+
     renderAttributeOptions = attribute => {
         console.log(attribute)
         if (attribute.type === 'text') {
             return (
                 <div className='attribute-options-wrapper'>
                     {attribute.items.map(option => 
-                        <p key={option.value} className='attribute-option option-text'>{option.value}</p>
+                        <button 
+                            onClick={this.addAttributeValue(attribute.name, option.value)}
+                            key={option.value} 
+                            className='attribute-option option-text'>{option.value}</button>
                     )}
                 </div>
             )
@@ -65,6 +79,7 @@ class ProductListingPage extends Component {
                 <div className='attribute-options-wrapper'>
                     {attribute.items.map(option => 
                         <div 
+                            onClick={this.addAttributeValue(attribute.name, option.value)}
                             key={option.value} 
                             className='attribute-option option-swatch'
                             style={{backgroundColor: option.value }}></div>
