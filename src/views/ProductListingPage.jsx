@@ -53,18 +53,21 @@ class ProductListingPage extends Component {
         console.log(attribute)
         if (attribute.type === 'text') {
             return (
-                <div>
+                <div className='attribute-options-wrapper'>
                     {attribute.items.map(option => 
-                        <p key={option.value}>{option.value}</p>
+                        <p key={option.value} className='attribute-option option-text'>{option.value}</p>
                     )}
                 </div>
             )
         }
         else {
             return (
-                <div>
+                <div className='attribute-options-wrapper'>
                     {attribute.items.map(option => 
-                        <div key={option.value} style={{backgroundColor: option.value, width: "40px", height: "40px"}}></div>
+                        <div 
+                            key={option.value} 
+                            className='attribute-option option-swatch'
+                            style={{backgroundColor: option.value }}></div>
                     )}
                 </div>
             )

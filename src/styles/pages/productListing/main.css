@@ -154,3 +154,34 @@
     width: 100%;
     z-index: 500;
 }
+
+.attribute-name {
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+.attribute-options-wrapper {
+    display: flex;
+    margin-top: 1em;
+}
+
+.attribute-option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+}
+
+.option-text {
+    border: 2px rgba(10, 10, 10, 0.8) solid;
+    font-weight: bold;
+}
+
+.option-swatch {
+    
+}
+
+.attribute-option:not(:first-child) {
+    margin-left: 1em;
+}
