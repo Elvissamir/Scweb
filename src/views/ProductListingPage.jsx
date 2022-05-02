@@ -40,7 +40,10 @@ class ProductListingPage extends Component {
 
     showProductMenu = product => {
         this.props.activateModal({ active: true })
-        this.setState({ currentProduct: product, showProductWindow: true })
+
+        if (product.id !== this.state.currentProduct.id)
+            this.setState({ currentProduct: product, showProductWindow: true })
+        else this.setState({ showProductWindow: true })
     }
 
     closeProductMenu = () => {
@@ -60,8 +63,9 @@ class ProductListingPage extends Component {
         this.setState({ currentProduct: product })
     }
 
-    renderAttributeOptions = attribute => {
-        console.log(attribute)
+    renderAttributeOptions = (attribute, options) => {
+        console.log('attribute', attribute)
+        console.log('options', options)
 
         const baseCss = 'attribute-option'
         const swatchCss = 'option-swatch'
@@ -79,7 +83,7 @@ class ProductListingPage extends Component {
                     <button 
                         onClick={this.addAttributeValue(attribute.name, option.value)}
                         key={option.value} 
-                        className={attributeCss}
+                        className={ options && options[attribute.name] === option.value? 'attribute-selected-option ' + attributeCss : attributeCss}
                         style={attribute.type === 'swatch'? {backgroundColor: option.value} : {}}>
                             {attribute.type !== 'swatch' && option.value}
                     </button>
@@ -122,7 +126,7 @@ class ProductListingPage extends Component {
                                     <div key={attribute.name} className='plp-popup-attribute'>
                                         <p className='attribute-name'>{attribute.name.toUpperCase()}:</p>
                                         <div>
-                                            { this.renderAttributeOptions(attribute) }
+                                            { this.renderAttributeOptions(attribute, this.state.currentProduct.options) }
                                         </div>
                                     </div>    
                                 )}

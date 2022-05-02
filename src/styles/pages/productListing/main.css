@@ -187,3 +187,7 @@
 .attribute-option:not(:first-child) {
     margin-left: 1em;
 }
+
+.attribute-selected-option {
+    border: 4px var(--brand-active) solid;
+}
