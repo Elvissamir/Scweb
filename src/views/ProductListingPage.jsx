@@ -47,7 +47,7 @@ class ProductListingPage extends Component {
         else this.setState({ showProductWindow: true })
     }
 
-    closeProductMenu = () => {
+    closeProductPopup = () => {
         this.props.activateModal({ active: false })
         this.setState({ showProductWindow: false })
     }
@@ -84,6 +84,7 @@ class ProductListingPage extends Component {
         if (this.state.currentProduct && this.state.showProductWindow) {
             return <ProductPopup 
                         currentProduct={this.state.currentProduct}
+                        onClose={this.closeProductPopup}
                         onSelectAttributeOption={this.addAttributeValue}
                         showProductWindow={this.state.showProductWindow} />
         }

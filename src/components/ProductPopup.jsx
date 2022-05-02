@@ -6,7 +6,7 @@ class ProductPopup extends Component {
         return (
             <div className={this.props.showProductWindow? 'plp-popup':'hide'}>
                 <div className='plp-popup-top'>
-                    <button onClick={this.closeProductMenu} className='plp-popup-close-btn'>X</button>
+                    <button onClick={this.props.onClose} className='plp-popup-close-btn'>X</button>
                 </div>
                 <div className='plp-popup-content'>
                     <div className='plp-popup-img-wrapper'>
