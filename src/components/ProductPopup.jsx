@@ -1,39 +1,7 @@
 import React, { Component } from "react";
+import AttributeOptions from './AttributeOptions';
 
 class ProductPopup extends Component {
-
-    renderAttributeOptions = (attribute, productOptions) => {
-        console.log('attribute', attribute)
-        console.log('options', productOptions)
-
-        return (
-            <div className='attribute-options-wrapper'>
-                {attribute.items.map(option => 
-                    <button 
-                        onClick={this.props.onSelectAttributeOption(attribute.name, option.value)}
-                        key={option.value} 
-                        className={this.selectAttributeOptionCss(attribute, option, productOptions)}
-                        style={attribute.type === 'swatch'? {backgroundColor: option.value} : {}}>
-                           {attribute.type !== 'swatch' && option.value}
-                    </button>
-                )}
-            </div>
-        )
-    }
-
-    selectAttributeOptionCss = (attribute, option, productOptions) => {
-        const baseCss = 'attribute-option'
-        const swatchCss = 'option-swatch'
-        const textCss = 'option-text'
-
-        const attributeCss = attribute.type === 'text'? `${baseCss} ${textCss}` : `${baseCss} ${swatchCss}`
-
-        if (productOptions && productOptions[attribute.name] === option.value)
-            return (attribute.type === 'text'? attributeCss + ' attribute-selected-text': attributeCss + ' attribute-selected-swatch')
-        else 
-            return attributeCss
-    }
-
     render() { 
         return (
             <div className={this.props.showProductWindow? 'plp-popup':'hide'}>
@@ -51,7 +19,10 @@ class ProductPopup extends Component {
                                 <div key={attribute.name} className='plp-popup-attribute'>
                                     <p className='attribute-name'>{attribute.name.toUpperCase()}:</p>
                                     <div>
-                                        { this.renderAttributeOptions(attribute, this.props.currentProduct.options) }
+                                        <AttributeOptions 
+                                            attribute={attribute}
+                                            productOptions={this.props.currentProduct.options}
+                                            onSelectAttributeOption={this.props.onSelectAttributeOption} />
                                     </div>
                                 </div>    
                             )}
