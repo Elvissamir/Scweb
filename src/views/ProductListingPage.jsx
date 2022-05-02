@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { findProductsByCategory } from '../services/http/ProductListing/ProductListingPage';
 import { addCartProduct } from '../store/features/cart/cartSlice';
 import { activateModal } from '../store/features/modal/modalSlice';
+import ProductPopup from '../components/ProductPopup';
 
 class ProductListingPage extends Component {
     state = { 
@@ -63,38 +64,6 @@ class ProductListingPage extends Component {
         this.setState({ currentProduct: product })
     }
 
-    selectAttributeOptionCss = (attribute, option, productOptions) => {
-        const baseCss = 'attribute-option'
-        const swatchCss = 'option-swatch'
-        const textCss = 'option-text'
-
-        const attributeCss = attribute.type === 'text'? `${baseCss} ${textCss}` : `${baseCss} ${swatchCss}`
-
-        if (productOptions && productOptions[attribute.name] === option.value)
-            return (attribute.type === 'text'? attributeCss + ' attribute-selected-text': attributeCss + ' attribute-selected-swatch')
-        else 
-            return attributeCss
-    }
-
-    renderAttributeOptions = (attribute, productOptions) => {
-        console.log('attribute', attribute)
-        console.log('options', productOptions)
-
-        return (
-            <div className='attribute-options-wrapper'>
-                {attribute.items.map(option => 
-                    <button 
-                        onClick={this.addAttributeValue(attribute.name, option.value)}
-                        key={option.value} 
-                        className={this.selectAttributeOptionCss(attribute, option, productOptions)}
-                        style={attribute.type === 'swatch'? {backgroundColor: option.value} : {}}>
-                            {attribute.type !== 'swatch' && option.value}
-                    </button>
-                )}
-            </div>
-        )
-    }
-
     shouldAddToCart = product => {
         if (product.attributes.length === 0)
             this.handleAddToCart(product)
@@ -113,31 +82,10 @@ class ProductListingPage extends Component {
 
     renderPopup = () => {
         if (this.state.currentProduct && this.state.showProductWindow) {
-            return (
-                <div className={this.state.showProductWindow? 'plp-popup':'hide'}>
-                    <div className='plp-popup-top'>
-                        <button onClick={this.closeProductMenu} className='plp-popup-close-btn'>X</button>
-                    </div>
-                    <div className='plp-popup-content'>
-                        <div className='plp-popup-img-wrapper'>
-                            <img className='plp-popup-img' src={this.state.currentProduct.gallery[0]} alt="" />
-                        </div>
-                        <div className='plp-popup-details'>
-                            <p className='plp-popup-title'>{this.state.currentProduct.brand + " - " + this.state.currentProduct.name}</p>
-                            <div>
-                                {this.state.currentProduct && this.state.currentProduct.attributes.map(attribute => 
-                                    <div key={attribute.name} className='plp-popup-attribute'>
-                                        <p className='attribute-name'>{attribute.name.toUpperCase()}:</p>
-                                        <div>
-                                            { this.renderAttributeOptions(attribute, this.state.currentProduct.options) }
-                                        </div>
-                                    </div>    
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )
+            return <ProductPopup 
+                        currentProduct={this.state.currentProduct}
+                        onSelectAttributeOption={this.addAttributeValue}
+                        showProductWindow={this.state.showProductWindow} />
         }
     }
 
