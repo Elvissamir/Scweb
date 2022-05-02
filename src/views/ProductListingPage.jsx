@@ -62,31 +62,30 @@ class ProductListingPage extends Component {
 
     renderAttributeOptions = attribute => {
         console.log(attribute)
-        if (attribute.type === 'text') {
-            return (
-                <div className='attribute-options-wrapper'>
-                    {attribute.items.map(option => 
-                        <button 
-                            onClick={this.addAttributeValue(attribute.name, option.value)}
-                            key={option.value} 
-                            className='attribute-option option-text'>{option.value}</button>
-                    )}
-                </div>
-            )
-        }
-        else {
-            return (
-                <div className='attribute-options-wrapper'>
-                    {attribute.items.map(option => 
-                        <div 
-                            onClick={this.addAttributeValue(attribute.name, option.value)}
-                            key={option.value} 
-                            className='attribute-option option-swatch'
-                            style={{backgroundColor: option.value }}></div>
-                    )}
-                </div>
-            )
-        }
+
+        const baseCss = 'attribute-option'
+        const swatchCss = 'option-swatch'
+        const textCss = 'option-text'
+
+        let attributeCss = ''
+        if (attribute.type === 'text')
+            attributeCss = `${baseCss} ${textCss}`
+        else 
+            attributeCss = `${baseCss} ${swatchCss}`
+
+        return (
+            <div className='attribute-options-wrapper'>
+                {attribute.items.map(option => 
+                    <button 
+                        onClick={this.addAttributeValue(attribute.name, option.value)}
+                        key={option.value} 
+                        className={attributeCss}
+                        style={attribute.type === 'swatch'? {backgroundColor: option.value} : {}}>
+                            {attribute.type !== 'swatch' && option.value}
+                    </button>
+                )}
+            </div>
+        )
     }
 
     shouldAddToCart = product => {
