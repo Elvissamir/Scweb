@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import AttributeOptions from './AttributeOptions';
 
 class ProductPopup extends Component {
+    renderInfoMessage = () => {
+        const { showSelectOptionsMessage, selectOptionsMessage } = this.props
+        if (showSelectOptionsMessage && !selectOptionsMessage.attribute)
+            return selectOptionsMessage.message
+    }
+
     render() { 
         return (
             <div className={this.props.showProductWindow? 'plp-popup':'hide'}>
@@ -21,6 +27,8 @@ class ProductPopup extends Component {
                                     <div>
                                         <AttributeOptions 
                                             attribute={attribute}
+                                            error={this.props.selectOptionsMessage}
+                                            showError={this.props.showSelectOptionsMessage}
                                             productOptions={this.props.currentProduct.options}
                                             onSelectAttributeOption={this.props.onSelectAttributeOption} />
                                     </div>
@@ -28,6 +36,9 @@ class ProductPopup extends Component {
                             )}
                         </div>
                         <div className="plp-popup-btn-wrapper">
+                            <p>
+                                {this.renderInfoMessage()}
+                            </p>
                             <button onClick={() => this.props.onAddToCart(this.props.currentProduct)} className="btn action-btn">ADD TO CART</button>
                         </div>
                     </div>

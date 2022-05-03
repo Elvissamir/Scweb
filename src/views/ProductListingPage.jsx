@@ -17,7 +17,7 @@ class ProductListingPage extends Component {
         error: false,
         showProductWindow: false,
         showSelectOptionsMessage: false,
-        selectOptionsMessage: '',
+        selectOptionsMessage: { attribute: null, message: null },
         currentProduct: {},
         products: []
     }
@@ -73,8 +73,6 @@ class ProductListingPage extends Component {
 
         const {valid, error} = shouldAddToCart(product)
 
-        console.log(valid, error)
-
         if (valid) {
             this.setState({ showSelectOptionsMessage: false })
             this.props.addCartProduct({ product })
@@ -84,7 +82,10 @@ class ProductListingPage extends Component {
         }
         else {
             this.setState({ showSelectOptionsMessage: true })
-            this.setState({ selectOptionsMessage: error.message })
+            this.setState({ selectOptionsMessage: { 
+                attribute: error.attribute,  
+                message: error.message
+            } })
         }
     }
 
@@ -99,6 +100,8 @@ class ProductListingPage extends Component {
                         currentProduct={this.state.currentProduct}
                         onClose={this.closeProductPopup}
                         onAddToCart={this.handleAddToCart}
+                        showSelectOptionsMessage={this.state.showSelectOptionsMessage}
+                        selectOptionsMessage={this.state.selectOptionsMessage}
                         onSelectAttributeOption={this.addAttributeValue}
                         showProductWindow={this.state.showProductWindow} />
         }
