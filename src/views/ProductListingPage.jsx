@@ -6,6 +6,8 @@ import { findProductsByCategory } from '../services/http/ProductListing/ProductL
 import { addCartProduct } from '../store/features/cart/cartSlice';
 import { activateModal } from '../store/features/modal/modalSlice';
 import ProductPopup from '../components/ProductPopup';
+import ErrorBlock from '../components/ErrorBlock';
+import NoDataBlock from '../components/NoDataBlock';
 
 class ProductListingPage extends Component {
     state = { 
@@ -33,6 +35,8 @@ class ProductListingPage extends Component {
             this.setState({ products })
             this.setState({ hasData: true })
         }
+        else 
+            this.setState({ hasData: false, error: true })
     }
 
     showProductMenu = product => {
@@ -40,7 +44,8 @@ class ProductListingPage extends Component {
 
         if (product.id !== this.state.currentProduct.id)
             this.setState({ currentProduct: product, showProductWindow: true })
-        else this.setState({ showProductWindow: true })
+        else 
+            this.setState({ showProductWindow: true })
     }
 
     closeProductPopup = () => {
@@ -89,11 +94,11 @@ class ProductListingPage extends Component {
     renderBlock() {
         if (!this.state.error) {
             if (!this.state.hasData)
-                return this.renderNoDataBlock()
+                return <NoDataBlock />
             return this.renderContent()
         }
 
-        return this.renderErrorBlock()
+        return <ErrorBlock />
     }
 
     renderContent() {
@@ -132,14 +137,6 @@ class ProductListingPage extends Component {
                 </div>
             </>
         )
-    }
-
-    renderNoDataBlock() {
-        return <div>There are no items to show at the moment.</div>
-    }
-
-    renderErrorBlock() {
-        return <div>Something happened. Try again in a few minutes.</div>
     }
 
     render() { 
