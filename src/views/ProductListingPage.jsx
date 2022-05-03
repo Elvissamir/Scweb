@@ -19,6 +19,7 @@ class ProductListingPage extends Component {
         showSelectOptionsMessage: false,
         selectOptionsMessage: { attribute: null, message: null },
         currentProduct: {},
+        prevProductId: null,
         products: []
     }
 
@@ -78,6 +79,12 @@ class ProductListingPage extends Component {
             this.props.addCartProduct({ product })
         }
         else if (!valid && !this.state.showProductWindow) {
+            if (product.id !== this.state.prevProductId) {
+                this.setState({ 
+                    showSelectOptionsMessage: false, 
+                    preveProductId: product.id
+                })
+            }
             this.showProductMenu(product)
         }
         else {

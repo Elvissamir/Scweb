@@ -36,7 +36,7 @@ class ProductPopup extends Component {
                             )}
                         </div>
                         <div className="plp-popup-btn-wrapper">
-                            <p>
+                            <p className="plp-popup-info-message">
                                 {this.renderInfoMessage()}
                             </p>
                             <button onClick={() => this.props.onAddToCart(this.props.currentProduct)} className="btn action-btn">ADD TO CART</button>
