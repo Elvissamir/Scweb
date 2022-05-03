@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { findProductsByCategory } from '../services/http/ProductListing/ProductListingPage';
 import { addCartProduct } from '../store/features/cart/cartSlice';
 import { activateModal } from '../store/features/modal/modalSlice';
+import shouldAddToCart from '../validation/Product/AddProductToCart';
 import ProductPopup from '../components/ProductPopup';
 import ErrorBlock from '../components/ErrorBlock';
 import NoDataBlock from '../components/NoDataBlock';
@@ -15,6 +16,8 @@ class ProductListingPage extends Component {
         hasData: false,
         error: false,
         showProductWindow: false,
+        showSelectOptionsMessage: false,
+        selectOptionsMessage: '',
         currentProduct: {},
         products: []
     }
@@ -65,15 +68,24 @@ class ProductListingPage extends Component {
         this.setState({ currentProduct: product })
     }
 
-    shouldAddToCart = product => {
-        if (product.attributes.length === 0)
-            this.handleAddToCart(product)
-        else 
-            this.showProductMenu(product)
-    }
-
     handleAddToCart = product => {
-        this.props.addCartProduct({ product })
+        console.log(product)
+
+        const {valid, error} = shouldAddToCart(product)
+
+        console.log(valid, error)
+
+        if (valid) {
+            this.setState({ showSelectOptionsMessage: false })
+            this.props.addCartProduct({ product })
+        }
+        else if (!valid && !this.state.showProductWindow) {
+            this.showProductMenu(product)
+        }
+        else {
+            this.setState({ showSelectOptionsMessage: true })
+            this.setState({ selectOptionsMessage: error.message })
+        }
     }
 
     selectPriceToShow = prices => {
@@ -86,6 +98,7 @@ class ProductListingPage extends Component {
             return <ProductPopup 
                         currentProduct={this.state.currentProduct}
                         onClose={this.closeProductPopup}
+                        onAddToCart={this.handleAddToCart}
                         onSelectAttributeOption={this.addAttributeValue}
                         showProductWindow={this.state.showProductWindow} />
         }
@@ -122,7 +135,7 @@ class ProductListingPage extends Component {
                                 </div>
                                 <div className='plp-product-info'>
                                     <div className='plp-shopping-btn-wrapper'>
-                                        <button onClick={() => this.shouldAddToCart(product)} className={product.inStock? 'plp-shopping-btn':'hide'}>
+                                        <button onClick={() => this.handleAddToCart(product)} className={product.inStock? 'plp-shopping-btn':'hide'}>
                                             <img src="/imgs/shopping-white.svg" alt="" />
                                         </button>
                                     </div>
