@@ -70,6 +70,11 @@
     background-color: rgba(228, 33, 33, 0.8);
 }
 
+.plp-popup-btn-wrapper {
+    margin-top: 2em;
+    width: 100%;
+}
+
 .category-title {
     font-size: 2em;
 }

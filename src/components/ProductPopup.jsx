@@ -27,6 +27,9 @@ class ProductPopup extends Component {
                                 </div>    
                             )}
                         </div>
+                        <div className="plp-popup-btn-wrapper">
+                            <button className="btn action-btn">ADD TO CART</button>
+                        </div>
                     </div>
                 </div>
             </div>

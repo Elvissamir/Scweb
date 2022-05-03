@@ -51,3 +51,20 @@ code {
 .hide {
   display: none;
 }
+
+.btn {
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  padding: 1em;
+  width: 100%;
+}
+
+.action-btn {
+  color: white;
+  background-color: var(--brand-active);
+}
+
+.action-btn:hover {
+  background-color: var(--brand-active);
+}
