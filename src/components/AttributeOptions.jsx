@@ -23,7 +23,7 @@ class AttributeOptions extends Component {
                         key={option.value} 
                         className={this.selectAttributeOptionCss(this.props.attribute, option, this.props.productOptions)}
                         style={this.props.attribute.type === 'swatch'? {backgroundColor: option.value} : {}}>
-                           {this.props.attribute.type !== 'swatch' && option.value}
+                        {this.props.attribute.type !== 'swatch' && option.value}
                     </button>
                 )}
             </div>

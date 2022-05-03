@@ -4,8 +4,16 @@ import AttributeOptions from './AttributeOptions';
 class ProductPopup extends Component {
     renderInfoMessage = () => {
         const { showSelectOptionsMessage, selectOptionsMessage } = this.props
-        if (showSelectOptionsMessage && !selectOptionsMessage.attribute)
+        if (showSelectOptionsMessage && selectOptionsMessage.message && !selectOptionsMessage.attribute)
             return selectOptionsMessage.message
+    }
+
+    renderAttributeInfo = attribute => {
+        const { showSelectOptionsMessage, selectOptionsMessage } = this.props
+        if (selectOptionsMessage.attribute && showSelectOptionsMessage) {
+            if (attribute.name === selectOptionsMessage.attribute)
+                return selectOptionsMessage.message
+        }
     }
 
     render() { 
@@ -27,16 +35,15 @@ class ProductPopup extends Component {
                                     <div>
                                         <AttributeOptions 
                                             attribute={attribute}
-                                            error={this.props.selectOptionsMessage}
-                                            showError={this.props.showSelectOptionsMessage}
                                             productOptions={this.props.currentProduct.options}
                                             onSelectAttributeOption={this.props.onSelectAttributeOption} />
                                     </div>
+                                    <div className="error-message">{this.renderAttributeInfo(attribute)}</div>
                                 </div>    
                             )}
                         </div>
                         <div className="plp-popup-btn-wrapper">
-                            <p className="plp-popup-info-message">
+                            <p className="error-message">
                                 {this.renderInfoMessage()}
                             </p>
                             <button onClick={() => this.props.onAddToCart(this.props.currentProduct)} className="btn action-btn">ADD TO CART</button>
