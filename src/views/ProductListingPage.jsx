@@ -35,10 +35,6 @@ class ProductListingPage extends Component {
         }
     }
 
-    handleCategoryChange = ({ target }) => {
-        this.setState({ activeCategory: target.textContent })
-    }
-
     showProductMenu = product => {
         this.props.activateModal({ active: true })
 
@@ -67,7 +63,7 @@ class ProductListingPage extends Component {
     shouldAddToCart = product => {
         if (product.attributes.length === 0)
             this.handleAddToCart(product)
-        else
+        else 
             this.showProductMenu(product)
     }
 
