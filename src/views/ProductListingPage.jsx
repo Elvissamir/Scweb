@@ -101,9 +101,9 @@ class ProductListingPage extends Component {
         }
     }
 
-    selectPriceToShow = prices => {
-        const price = prices.find(price => price.currency.symbol === this.props.activeCurrency)
-        return <p className='plp-product-price'>{price.currency.symbol + price.amount}</p>
+    selectPriceToShow = (prices, activeCurrency) => {
+        const price = prices.find(price => price.currency.symbol === activeCurrency)
+        return price.currency.symbol + price.amount
     }
 
     renderPopup = () => {
@@ -157,7 +157,7 @@ class ProductListingPage extends Component {
                                     <Link id={product.id} className='plp-product-title' to={routes.getProductRoute(product.id)}>
                                         {product.brand + " " + product.name}
                                     </Link>  
-                                    {this.selectPriceToShow(product.prices)}
+                                    <p className='plp-product-price'>{this.selectPriceToShow(product.prices, this.props.activeCurrency)}</p>
                                 </div>
                             </div>
                         </div>
