@@ -16,6 +16,8 @@ query findProductById($id: String!){
       id
       items {
         id
+        value
+        displayValue
       }
       name
       type

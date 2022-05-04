@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class AttributeOptions extends Component {
+
+    componentDidMount() {
+        console.log(this.props)
+    }
+
     selectAttributeOptionCss = (attribute, option, productOptions) => {
         const baseCss = 'attribute-option'
         const swatchCss = 'option-swatch'
@@ -26,6 +31,8 @@ class AttributeOptions extends Component {
                         {this.props.attribute.type !== 'swatch' && option.value}
                     </button>
                 )}
+
+                <div>{this.props.attribute.items[0].value}</div>
             </div>
         );
     }
