@@ -23,27 +23,10 @@
     justify-content: space-around;
 }
 
-.plp-popup-img-wrapper {
-    display: flex;
-    height: 400px;
-    width: 500px;
-    box-shadow: 0px 0px 5px lightgray;
-}
-
-.plp-popup-img {
-    height: 100%;
-    width: 100%;
-}
-
 .plp-popup-top {
     display: flex;
     align-items: center;
     width: 100%;
-}
-
-.plp-popup-title {
-    font-size: 1.2em;
-    font-weight: bold;
 }
 
 .plp-popup-close-btn {
@@ -64,9 +47,4 @@
 
 .plp-popup-close-btn:hover {
     background-color: rgba(228, 33, 33, 0.8);
-}
-
-.plp-popup-btn-wrapper {
-    margin-top: 2em;
-    width: 100%;
 }
