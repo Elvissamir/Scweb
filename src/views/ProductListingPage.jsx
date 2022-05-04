@@ -6,6 +6,7 @@ import { findProductsByCategory } from '../services/http/ProductListing/ProductL
 import { addCartProduct } from '../store/features/cart/cartSlice';
 import { activateModal } from '../store/features/modal/modalSlice';
 import shouldAddToCart from '../validation/Product/AddProductToCart';
+import selectPriceToShow from '../utils/selectPriceToShow';
 import ProductPopup from '../components/ProductPopup';
 import ErrorBlock from '../components/ErrorBlock';
 import NoDataBlock from '../components/NoDataBlock';
@@ -101,11 +102,6 @@ class ProductListingPage extends Component {
         }
     }
 
-    selectPriceToShow = (prices, activeCurrency) => {
-        const price = prices.find(price => price.currency.symbol === activeCurrency)
-        return price.currency.symbol + price.amount
-    }
-
     renderPopup = () => {
         if (this.state.currentProduct && this.state.showProductWindow) {
             return <ProductPopup 
@@ -157,7 +153,7 @@ class ProductListingPage extends Component {
                                     <Link id={product.id} className='plp-product-title' to={routes.getProductRoute(product.id)}>
                                         {product.brand + " " + product.name}
                                     </Link>  
-                                    <p className='plp-product-price'>{this.selectPriceToShow(product.prices, this.props.activeCurrency)}</p>
+                                    <p className='plp-product-price'>{selectPriceToShow(product.prices, this.props.activeCurrency)}</p>
                                 </div>
                             </div>
                         </div>
