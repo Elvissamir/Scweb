@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import AttributeOptions from './AttributeOptions';
 
 class ProductItem extends Component {
+    componentDidMount() {
+        console.log(this.props)
+    }
+
+
     renderInfoMessage = () => {
         const { showSelectOptionsMessage, selectOptionsMessage } = this.props
         if (showSelectOptionsMessage && selectOptionsMessage.message && !selectOptionsMessage.attribute)
@@ -25,7 +30,7 @@ class ProductItem extends Component {
                 <div className='product-item-details'>
                     <p className='product-item-title'>{this.props.data.brand + " - " + this.props.data.name}</p>
                     <div>
-                        {this.props.data.attributes.map(attribute => 
+                        { this.props.data && this.props.data.attributes.map(attribute => 
                             <div key={attribute.name} className='product-item-attribute'>
                                 <p className='attribute-name'>{attribute.name.toUpperCase()}:</p>
                                 <div>

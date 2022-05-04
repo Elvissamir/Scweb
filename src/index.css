@@ -9,6 +9,7 @@
 /*Components*/
 @import './styles/components/ProductPopup.css';
 @import './styles/components/ProductList.css';
+@import './styles/components/ProductItem.css';
 
 /*Pages*/
 @import './styles/pages/productListing/main.css';

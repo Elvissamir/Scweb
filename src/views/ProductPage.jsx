@@ -28,7 +28,7 @@ class ProductPage extends Component {
     }
 
     addAttributeValue = (attributeName, value) => e => {
-        const product = {...this.state.currentProduct}
+        const product = {...this.state.product}
 
         if (product.options)
             product.options[attributeName] = value
