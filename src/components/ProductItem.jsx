@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AttributeOptions from './AttributeOptions';
+import { Markup } from "interweave";
 
 class ProductItem extends Component {
     componentDidMount() {
@@ -53,7 +54,7 @@ class ProductItem extends Component {
                     <div className="product-item-price-wrapper">
                         <p className="product-item-price">PRICE: </p>
                         <p className="product-item-amount">{
-                            this.props.data.prices[0].currency.symbol}</p>
+                            this.props.data.prices[0].currency.symbol + this.props.data.prices[0].amount}</p>
                     </div>
                     <div className="product-item-btn-wrapper">
                         <p className="error-message">
@@ -64,7 +65,7 @@ class ProductItem extends Component {
                             className="btn action-btn">ADD TO CART</button>
                     </div>
                     <div className="product-item-description">
-                        <p>{this.props.data.description}</p>
+                        <Markup content={this.props.data.description} />
                     </div>
                 </div>
             </div>

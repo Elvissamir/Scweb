@@ -47,7 +47,7 @@ class CurrenciesMenu extends Component {
                     onClick={this.toggleCurrencyMenu}>
                         <img 
                             src={this.state.showCurrencyOptions? '/imgs/arrow-down.svg' : '/imgs/arrow-up.svg'} 
-                            className='arrow-toggle-currencies'/>
+                            className='arrow-toggle-currencies' alt=''/>
                 </button>
             </> 
         );

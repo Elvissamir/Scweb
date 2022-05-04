@@ -1,6 +1,6 @@
 import client from './apolloClient'
 
-export default async function (gqlquery, options) {
+export default async function requestHandler (gqlquery, options) {
     const query = {
         query: gqlquery
     }
