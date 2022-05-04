@@ -24,13 +24,15 @@ class ProductItem extends Component {
     render() { 
         return (
             <div className="product-item">
-                <div className="product-item-gallery">
-                    {this.props.data.gallery.map((img, index) => 
-                        <img className="product-item-gallery-option" key={index} src={img} alt="" />    
-                    )}
-                </div>
-                <div className='product-item-img-wrapper'>
-                    <img className='product-item-img' src={this.props.data.gallery[0]} alt="" />
+                <div className="product-item-left">
+                    <div className="product-item-gallery">
+                        {this.props.data.gallery.map((img, index) => 
+                            <img className="product-item-gallery-option" key={index} src={img} alt="" />    
+                        )}
+                    </div>
+                    <div className='product-item-img-wrapper'>
+                        <img className='product-item-img' src={this.props.data.gallery[0]} alt="" />
+                    </div>
                 </div>
                 <div className='product-item-details'>
                     <p className='product-item-title'>{this.props.data.brand + " - " + this.props.data.name}</p>
@@ -50,7 +52,8 @@ class ProductItem extends Component {
                     </div>
                     <div className="product-item-price-wrapper">
                         <p className="product-item-price">PRICE: </p>
-                        <p className="product-item-amount">{this.props.data.prices[0].currency.symbol}</p>
+                        <p className="product-item-amount">{
+                            this.props.data.prices[0].currency.symbol}</p>
                     </div>
                     <div className="product-item-btn-wrapper">
                         <p className="error-message">
