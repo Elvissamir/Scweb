@@ -7,6 +7,7 @@ query findProductById($id: String!){
     id
     gallery
     prices {
+      amount
       currency {
         symbol
         label
