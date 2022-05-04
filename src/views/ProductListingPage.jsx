@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import routes from '../routes';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { findProductsByCategory } from '../services/http/ProductListing/ProductListingPage';
 import { addCartProduct } from '../store/features/cart/cartSlice';
 import { activateModal } from '../store/features/modal/modalSlice';
 import shouldAddToCart from '../validation/Product/AddProductToCart';
-import selectPriceToShow from '../utils/selectPriceToShow';
 import ProductPopup from '../components/ProductPopup';
 import ErrorBlock from '../components/ErrorBlock';
 import NoDataBlock from '../components/NoDataBlock';
+import ProductList from '../components/ProductList';
 
 class ProductListingPage extends Component {
     state = { 
@@ -59,8 +57,6 @@ class ProductListingPage extends Component {
     }
 
     addAttributeValue = (attributeName, value) => e => {
-        console.log('the attribute name', attributeName)
-        console.log('the attribute value', value)
         const product = {...this.state.currentProduct}
 
         if (product.options)
@@ -72,8 +68,6 @@ class ProductListingPage extends Component {
     }
 
     handleAddToCart = product => {
-        console.log(product)
-
         const {valid, error} = shouldAddToCart(product)
 
         if (valid) {
@@ -135,29 +129,9 @@ class ProductListingPage extends Component {
                     <p >{ this.props.activeCategory.toUpperCase() }</p>
                 </div>
                 <div className='plp-products-container'>
-                    {this.state.products.map(product =>
-                        <div key={product.id} className='plp-product-wrapper'>
-                            <div className={product.inStock? 'hide': 'plp-out-of-stock'}>
-                                <p>OUT OF STOCK</p>
-                            </div>
-                            <div className='plp-product'>
-                                <div className='plp-product-image-wrapper'>
-                                    <img className='plp-main-product-image' src={product.gallery[0]} alt="" />
-                                </div>
-                                <div className='plp-product-info'>
-                                    <div className='plp-shopping-btn-wrapper'>
-                                        <button onClick={() => this.handleAddToCart(product)} className={product.inStock? 'plp-shopping-btn':'hide'}>
-                                            <img src="/imgs/shopping-white.svg" alt="" />
-                                        </button>
-                                    </div>
-                                    <Link id={product.id} className='plp-product-title' to={routes.getProductRoute(product.id)}>
-                                        {product.brand + " " + product.name}
-                                    </Link>  
-                                    <p className='plp-product-price'>{selectPriceToShow(product.prices, this.props.activeCurrency)}</p>
-                                </div>
-                            </div>
-                        </div>
-                    )}
+                    <ProductList 
+                        products={this.state.products} 
+                        activeCurrency={this.props.activeCurrency} />
                 </div>
             </>
         )
