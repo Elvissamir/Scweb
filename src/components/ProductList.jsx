@@ -14,12 +14,14 @@ class ProductList extends Component {
                         </div>
                         <div className='plp-product'>
                             <div className='plp-product-image-wrapper'>
-                                <img className='plp-main-product-image' src={product.gallery[0]} alt="" />
+                                <img className='plp-main-product-image' src={product.gallery[0]} alt='product' />
                             </div>
                             <div className='plp-product-info'>
                                 <div className='plp-shopping-btn-wrapper'>
-                                    <button onClick={() => this.handleAddToCart(product)} className={product.inStock? 'plp-shopping-btn':'hide'}>
-                                        <img src="/imgs/shopping-white.svg" alt="" />
+                                    <button 
+                                        onClick={() => this.props.onAddToCart(product)} 
+                                        className={product.inStock? 'plp-shopping-btn':'hide'}>
+                                            <img src="/imgs/shopping-white.svg" alt="" />
                                     </button>
                                 </div>
                                 <Link id={product.id} className='plp-product-title' to={routes.getProductRoute(product.id)}>

@@ -42,7 +42,7 @@ class ProductListingPage extends Component {
             this.setState({ hasData: false, error: true })
     }
 
-    showProductMenu = product => {
+    showProductPopup = product => {
         this.props.activateModal({ active: true })
 
         if (product.id !== this.state.currentProduct.id)
@@ -85,7 +85,7 @@ class ProductListingPage extends Component {
                     preveProductId: product.id
                 })
             }
-            this.showProductMenu(product)
+            this.showProductPopup(product)
         }
         else {
             this.setState({ showSelectOptionsMessage: true })
@@ -131,7 +131,8 @@ class ProductListingPage extends Component {
                 <div className='plp-products-container'>
                     <ProductList 
                         products={this.state.products} 
-                        activeCurrency={this.props.activeCurrency} />
+                        activeCurrency={this.props.activeCurrency} 
+                        onAddToCart={this.handleAddToCart}/>
                 </div>
             </>
         )
