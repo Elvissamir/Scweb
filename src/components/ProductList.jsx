@@ -6,7 +6,7 @@ import selectPriceToShow from '../utils/selectPriceToShow';
 class ProductList extends Component {
     render() { 
         return (
-            <div>
+            <div className='plp-product-list'>
                 {this.props.products.map(product =>
                     <div key={product.id} className='plp-product-wrapper'>
                         <div className={product.inStock? 'hide': 'plp-out-of-stock'}>
