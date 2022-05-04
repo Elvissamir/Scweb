@@ -66,6 +66,7 @@ class ProductListingPage extends Component {
             product.options[attributeName] = value
         else 
             product.options = { [attributeName]: value }
+
         this.setState({ currentProduct: product })
     }
 
@@ -77,11 +78,15 @@ class ProductListingPage extends Component {
         if (valid) {
             this.setState({ showSelectOptionsMessage: false })
             this.props.addCartProduct({ product })
+
+            if (this.state.showProductWindow)
+                this.closeProductPopup()
+            this.setState({ currentProduct: {} })
         }
         else if (!valid && !this.state.showProductWindow) {
             if (product.id !== this.state.prevProductId) {
                 this.setState({ 
-                    showSelectOptionsMessage: false, 
+                    showSelectOptionsMessage: false,
                     preveProductId: product.id
                 })
             }
