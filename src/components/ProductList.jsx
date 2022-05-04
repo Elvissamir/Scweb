@@ -26,7 +26,7 @@ class ProductList extends Component {
                                 </div>
                                 <Link id={product.id} className='plp-product-title' to={routes.getProductRoute(product.id)}>
                                     {product.brand + " " + product.name}
-                                </Link>  
+                                </Link>
                                 <p className='plp-product-price'>{selectPriceToShow(product.prices, this.props.activeCurrency)}</p>
                             </div>
                         </div>

@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import AttributeOptions from './AttributeOptions';
 import { Markup } from "interweave";
+import selectPriceToShow from '../utils/selectPriceToShow';
+import { connect } from "react-redux";
 
 class ProductItem extends Component {
     componentDidMount() {
         console.log(this.props.data)
     }
-
 
     renderInfoMessage = () => {
         const { showSelectOptionsMessage, selectOptionsMessage } = this.props
@@ -53,8 +54,7 @@ class ProductItem extends Component {
                     </div>
                     <div className="product-item-price-wrapper">
                         <p className="product-item-price">PRICE: </p>
-                        <p className="product-item-amount">{
-                            this.props.data.prices[0].currency.symbol + this.props.data.prices[0].amount}</p>
+                        <p className="product-item-amount">{selectPriceToShow(this.props.data.prices, this.props.activeCurrency)}</p>
                     </div>
                     <div className="product-item-btn-wrapper">
                         <p className="error-message">
@@ -73,4 +73,8 @@ class ProductItem extends Component {
     }
 }
  
-export default ProductItem;
+const mapStateToProps = state => ({
+    activeCurrency: state.currency.activeCurrency
+})
+ 
+export default connect(mapStateToProps)(ProductItem);
