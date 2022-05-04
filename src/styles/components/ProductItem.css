@@ -1,21 +1,21 @@
-.plp-popup-img-wrapper {
+.product-item-img-wrapper {
     display: flex;
     height: 400px;
     width: 500px;
     box-shadow: 0px 0px 5px lightgray;
 }
 
-.plp-popup-img {
+.product-item-img {
     height: 100%;
     width: 100%;
 }
 
-.plp-popup-title {
+.product-item-title {
     font-size: 1.2em;
     font-weight: bold;
 }
 
-.plp-popup-btn-wrapper {
+.product-item-btn-wrapper {
     margin-top: 2em;
     width: 100%;
 }
