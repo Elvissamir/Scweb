@@ -74,6 +74,7 @@ class ProductPage extends Component {
                     <ProductItem 
                         data={this.state.product}
                         selectOptionsMessage='' 
+                        showGallery={true}
                         onSelectAttributeOption={this.addAttributeValue}
                         showSelectOptionsMessage={false}
                         onAddToCart={this.handleAddToCart} />}

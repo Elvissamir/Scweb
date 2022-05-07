@@ -9,6 +9,14 @@ class ProductItem extends Component {
         console.log(this.props.data)
     }
 
+    renderGallery = () => {
+        <div className="product-item-gallery">
+            {this.props.data.gallery.map((img, index) => 
+                <img className="product-item-gallery-option" key={index} src={img} alt="" />    
+            )}
+        </div>
+    }
+
     renderInfoMessage = () => {
         const { showSelectOptionsMessage, selectOptionsMessage } = this.props
         if (showSelectOptionsMessage && selectOptionsMessage.message && !selectOptionsMessage.attribute)
@@ -27,12 +35,8 @@ class ProductItem extends Component {
         return (
             <div className="product-item">
                 <div className="product-item-left">
-                    <div className="product-item-gallery">
-                        {this.props.data.gallery.map((img, index) => 
-                            <img className="product-item-gallery-option" key={index} src={img} alt="" />    
-                        )}
-                    </div>
-                    <div className='product-item-img-wrapper'>
+                    {this.props.showGallery && this.renderGallery()}
+                    <div className={this.props.showGallery? 'product-img-with-gallery': 'product-img-no-gallery'}>
                         <img className='product-item-img' src={this.props.data.gallery[0]} alt="" />
                     </div>
                 </div>

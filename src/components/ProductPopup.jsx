@@ -12,6 +12,7 @@ class ProductPopup extends Component {
                     <ProductItem 
                         data={this.props.currentProduct} 
                         showSelectOptionsMessage={this.props.showSelectOptionsMessage}
+                        showGallery={false}
                         onSelectAttributeOption={this.props.onSelectAttributeOption}
                         onAddToCart={this.props.onAddToCart}
                         selectOptionsMessage={this.props.selectOptionsMessage}/>
