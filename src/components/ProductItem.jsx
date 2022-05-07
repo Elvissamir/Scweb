@@ -38,7 +38,7 @@ class ProductItem extends Component {
                 </div>
                 <div className='product-item-details'>
                     <p className='product-item-title'>{this.props.data.brand + " - " + this.props.data.name}</p>
-                    <div>
+                    <div className="product-item-attributes">
                         { this.props.data && this.props.data.attributes.map(attribute => 
                             <div key={attribute.name} className='product-item-attribute'>
                                 <p className='attribute-name'>{attribute.name.toUpperCase()}:</p>
