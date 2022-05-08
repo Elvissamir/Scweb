@@ -88,11 +88,13 @@ class ProductListingPage extends Component {
             this.showProductPopup(product)
         }
         else {
-            this.setState({ showSelectOptionsMessage: true })
-            this.setState({ selectOptionsMessage: { 
-                attribute: error.attribute,  
-                message: error.message
-            } })
+            this.setState({ 
+                selectOptionsMessage: { 
+                    attribute: error.attribute,  
+                    message: error.message
+                }, 
+                showSelectOptionsMessage: true
+            })
         }
     }
 

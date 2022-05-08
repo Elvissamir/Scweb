@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { findProductById } from '../services/http/Product/ProductPage';
 import withRouter from '../components/withRouter';
+import { addCartProduct } from '../store/features/cart/cartSlice';
 import shouldAddToCart from '../validation/Product/AddProductToCart';
 import ProductItem from '../components/ProductItem';
+import { connect } from 'react-redux';
 
 class ProductPage extends Component {
     state = {
         product: null,
-        error: false
+        showSelectOptionsMessage: false,
+        selectOptionsMessage: {attribute: null, message: null}
     }
 
     async componentDidMount() {
@@ -41,30 +44,17 @@ class ProductPage extends Component {
     handleAddToCart = product => {
         const {valid, error} = shouldAddToCart(product)
 
-        if (valid) {
-            this.setState({ showSelectOptionsMessage: false })
-            this.props.addCartProduct({ product })
-
-            if (this.state.showProductWindow)
-                this.closeProductPopup()
-            this.setState({ currentProduct: {} })
-        }
-        else if (!valid && !this.state.showProductWindow) {
-            if (product.id !== this.state.prevProductId) {
-                this.setState({ 
-                    showSelectOptionsMessage: false,
-                    preveProductId: product.id
-                })
-            }
-            this.showProductPopup(product)
-        }
-        else {
-            this.setState({ showSelectOptionsMessage: true })
-            this.setState({ selectOptionsMessage: { 
-                attribute: error.attribute,  
+        if (!valid) {
+            return this.setState({ selectOptionsMessage: { 
+                attribute: error.attribute, 
                 message: error.message
-            } })
+            }, 
+            showSelectOptionsMessage: true
+            })
         }
+
+        const newCartProduct = {...this.state.product}
+        this.props.addCartProduct({ product: newCartProduct })
     }
 
     render() { 
@@ -73,14 +63,20 @@ class ProductPage extends Component {
                 {this.state.product && 
                     <ProductItem 
                         data={this.state.product}
-                        selectOptionsMessage='' 
+                        selectOptionsMessage={this.state.selectOptionsMessage}
                         showGallery={true}
                         onSelectAttributeOption={this.addAttributeValue}
-                        showSelectOptionsMessage={false}
+                        showSelectOptionsMessage={this.state.selectOptionsMessage}
                         onAddToCart={this.handleAddToCart} />}
             </div>
         );
     }
 }
 
-export default withRouter(ProductPage);
+const mapStateToProps = () => ({})
+
+const mapDispatchToProps = dispatch => ({
+    addCartProduct: (payload) => dispatch(addCartProduct(payload)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProductPage))
