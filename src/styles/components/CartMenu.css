@@ -12,14 +12,14 @@
 
 .cart-btn {
     border: none;
-    background-color: white;
     cursor: pointer;
-    width: 3em;
+    background-color: white;
     height: 2.5em;
+    width: 3em;
 }
 
 .cart-btn-svg {
     pointer-events: none;
-    height: 3em;
+    height: 2.5em;
     width: 3em;
 }
