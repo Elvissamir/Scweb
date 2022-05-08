@@ -55,18 +55,21 @@ class ProductPage extends Component {
         this.setState({ selectOptionsMessage: {} })
     }
 
-    handleAddToCart = product => {
-        const {valid, error} = shouldAddToCart(product)
-
-        if (!valid) {
-            return this.setState({ selectOptionsMessage: { 
+    showOptionsMessage = error => {
+        this.setState({ 
+            selectOptionsMessage: { 
                 attribute: error.attribute, 
                 message: error.message
             }, 
             showSelectOptionsMessage: true
-            })
-        }
+        })
+    }
 
+    handleAddToCart = product => {
+        const {valid, error} = shouldAddToCart(product)
+
+        if (!valid) 
+            return this.showOptionsMessage(error)
 
         this.cleanSelectOptionsMessage()
         this.addProductToCart()
