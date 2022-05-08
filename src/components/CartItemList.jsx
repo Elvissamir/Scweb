@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import CartItem from './CartItem';
 
 class CartItemList extends Component { 
-    componentDidMount() {
-        console.log(this.props.cartProducts)
-    }
-
     render() { 
         return (
-            <div>
+            <div className='cart-item-list-wrapper'>
                 {this.props.cartProducts.map((item, index) => 
-                    <CartItem key={index} data={item} />    
+                    <CartItem 
+                        key={index} 
+                        data={item}
+                        activeCurrency={this.props.activeCurrency} />
                 )}
             </div>
         );

@@ -61,7 +61,9 @@ class Nav extends Component {
                             <div className='cart-menu-wrapper'>
                                 <CartMenuBtn 
                                     productCount={this.props.cartProducts.length} />
-                                <CartMenu cartProducts={this.props.cartProducts} />
+                                <CartMenu 
+                                    activeCurrency={this.props.activeCurrency}
+                                    cartProducts={this.props.cartProducts} />
                             </div>
                         </div>
                     </div>

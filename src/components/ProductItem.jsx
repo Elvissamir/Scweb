@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import AttributeOptions from './AttributeOptions';
 import { Markup } from "interweave";
 import selectPriceToShow from '../utils/selectPriceToShow';
+import AttributeList from "./AttributeList";
 import { connect } from "react-redux";
 
 class ProductItem extends Component {
@@ -43,18 +43,10 @@ class ProductItem extends Component {
                 <div className='product-item-details'>
                     <p className='product-item-title'>{this.props.data.brand + " - " + this.props.data.name}</p>
                     <div className="product-item-attributes">
-                        { this.props.data && this.props.data.attributes.map(attribute => 
-                            <div key={attribute.name} className='product-item-attribute'>
-                                <p className='attribute-name'>{attribute.name.toUpperCase()}:</p>
-                                <div>
-                                    <AttributeOptions 
-                                        attribute={attribute}
-                                        productOptions={this.props.data.options}
-                                        onSelectAttributeOption={this.props.onSelectAttributeOption} />
-                                </div>
-                                <div className="error-message">{this.renderAttributeInfo(attribute)}</div>
-                            </div>    
-                        )}
+                        {this.props.data && 
+                            <AttributeList 
+                                attributes={this.props.data.attributes}
+                                options={this.props.data.options} />}
                     </div>
                     <div className="product-item-price-wrapper">
                         <p className="product-item-price">PRICE: </p>

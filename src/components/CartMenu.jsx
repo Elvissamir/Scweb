@@ -10,7 +10,9 @@ class CartMenu extends Component {
                     <p className='cart-menu-count'>{this.props.cartProducts.length}</p>
                 </div>
                 <div className='cart-menu-items-wrapper'>
-                    <CartItemList cartProducts={this.props.cartProducts} />
+                    <CartItemList 
+                        cartProducts={this.props.cartProducts}
+                        activeCurrency={this.props.activeCurrency} />
                 </div>
             </div>
         );
