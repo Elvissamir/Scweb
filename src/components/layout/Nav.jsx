@@ -3,8 +3,9 @@ import { findCategoriesAndCurrencies } from '../../services/http/Nav/Nav';
 import { changeCategory } from '../../store/features/category/categorySlice';
 import { changeCurrency } from '../../store/features/currency/currencySlice'
 import { connect } from 'react-redux';
-import CurrenciesMenu from './CurrenciesMenu';
-import CategoriesMenu from './CategoriesMenu';
+import CurrenciesMenu from '../CurrenciesMenu';
+import CategoriesMenu from '../CategoriesMenu';
+import CartMenu from '../CartMenu';
 
 class Nav extends Component {
     state = { 
@@ -13,6 +14,8 @@ class Nav extends Component {
     }
     
     async componentDidMount() {
+        console.log(this.props.cartProducts)
+
         const result = await findCategoriesAndCurrencies()
 
         if (!result.error) {
@@ -55,9 +58,7 @@ class Nav extends Component {
                                     onCurrencySelect={this.handleCurrencySelect}/>
                             </div>
                             <div className='cart-menu-wrapper'>
-                                <button className='cart-btn'>
-                                    <img className='cart-btn-svg' src="/imgs/shopping.svg" alt="" />
-                                </button>
+                                <CartMenu />
                             </div>
                         </div>
                     </div>
@@ -69,7 +70,8 @@ class Nav extends Component {
 
 const mapStateToProps = state => ({
     activeCategory: state.category.activeCategory,
-    activeCurrency: state.currency.activeCurrency
+    activeCurrency: state.currency.activeCurrency,
+    cartProducts: state.cart.products
 })
 
 const mapDispatchToProps = dispatch => ({

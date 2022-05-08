@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import routes from '../../routes';
+import routes from '../routes';
 
 class CategoriesMenu extends Component {
     isActiveCategory = (category) => {
