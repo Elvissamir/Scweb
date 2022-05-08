@@ -41,6 +41,20 @@ class ProductPage extends Component {
         this.setState({ product })
     }
 
+    addProductToCart = () => {
+        const newCartProduct = {...this.state.product}
+        this.props.addCartProduct({ product: newCartProduct })
+    }
+
+    cleanOptions = () => {
+        delete this.state.product.options
+    }
+
+    cleanSelectOptionsMessage = () => {
+        this.setState({ showSelectOptionsMessage: false })
+        this.setState({ selectOptionsMessage: {} })
+    }
+
     handleAddToCart = product => {
         const {valid, error} = shouldAddToCart(product)
 
@@ -53,8 +67,10 @@ class ProductPage extends Component {
             })
         }
 
-        const newCartProduct = {...this.state.product}
-        this.props.addCartProduct({ product: newCartProduct })
+
+        this.cleanSelectOptionsMessage()
+        this.addProductToCart()
+        this.cleanOptions()
     }
 
     render() { 
