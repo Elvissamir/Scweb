@@ -1,0 +1,13 @@
+.cart-btn {
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    height: 2em;
+    width: 3em;
+}
+
+.cart-btn-svg {
+    pointer-events: none;
+    height: 2em;
+    width: 3em;
+}

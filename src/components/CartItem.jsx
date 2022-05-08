@@ -1,6 +1,8 @@
+import { Component } from 'react';
+
 class CartItem extends Component {
     render() { 
-        return 
+        return <p>Cart Item</p>
     }
 }
  

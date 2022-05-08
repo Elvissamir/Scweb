@@ -1,5 +1,6 @@
 .cart-menu-wrapper {
     display: flex;
+    position: relative;
     align-items: flex-start;
     justify-content: flex-end;
     margin-left: 2em;
@@ -7,19 +8,4 @@
 
 .cart-menu {
     display: flex;
-    position: relative;
-}
-
-.cart-btn {
-    border: none;
-    cursor: pointer;
-    background-color: white;
-    height: 2em;
-    width: 3em;
-}
-
-.cart-btn-svg {
-    pointer-events: none;
-    height: 2em;
-    width: 3em;
 }

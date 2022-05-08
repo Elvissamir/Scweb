@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import CurrenciesMenu from '../CurrenciesMenu';
 import CategoriesMenu from '../CategoriesMenu';
 import CartMenu from '../CartMenu';
+import CartMenuBtn from '../CartMenuBtn';
 
 class Nav extends Component {
     state = { 
@@ -58,6 +59,8 @@ class Nav extends Component {
                                     onCurrencySelect={this.handleCurrencySelect}/>
                             </div>
                             <div className='cart-menu-wrapper'>
+                                <CartMenuBtn 
+                                    productCount={this.props.cartProducts.length} />
                                 <CartMenu cartProducts={this.props.cartProducts} />
                             </div>
                         </div>
