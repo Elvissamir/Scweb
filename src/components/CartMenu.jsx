@@ -6,7 +6,7 @@ class CartMenu extends Component {
     render() { 
         return (
             <div className="cart-menu">
-                <CartCountIcon />
+                <CartCountIcon productCount={this.props.cartProducts.length} />
                 <CartMenuBtn />
             </div>
         );

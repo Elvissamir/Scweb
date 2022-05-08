@@ -58,7 +58,7 @@ class Nav extends Component {
                                     onCurrencySelect={this.handleCurrencySelect}/>
                             </div>
                             <div className='cart-menu-wrapper'>
-                                <CartMenu />
+                                <CartMenu cartProducts={this.props.cartProducts} />
                             </div>
                         </div>
                     </div>
