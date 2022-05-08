@@ -1,0 +1,25 @@
+.cart-menu-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-left: 2em;
+}
+
+.cart-menu {
+    display: flex;
+    position: relative;
+}
+
+.cart-btn {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    width: 3em;
+    height: 2.5em;
+}
+
+.cart-btn-svg {
+    pointer-events: none;
+    height: 3em;
+    width: 3em;
+}

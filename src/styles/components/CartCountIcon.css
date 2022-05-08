@@ -1,0 +1,9 @@
+.show-cart-product-count {
+    display: flex;
+    position: absolute;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 0.3em;
+    border-radius: 50%;
+}

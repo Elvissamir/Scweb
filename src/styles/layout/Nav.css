@@ -122,23 +122,6 @@
     pointer-events: none;
 }
 
-.cart-menu-wrapper {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-    margin-left: 2em;
-}
-
-.cart-btn {
-    border: none;
-    background-color: white;
-    cursor: pointer;
-}
-
-.cart-btn-svg {
-    pointer-events: none;
-}
-
 .right-wrapper {
     display: flex;
     justify-content: flex-end;
