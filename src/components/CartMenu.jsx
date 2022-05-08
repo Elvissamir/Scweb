@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CartItemList from './CartItemList';
 
 class CartMenu extends Component {     
     render() { 
@@ -9,7 +10,7 @@ class CartMenu extends Component {
                     <p className='cart-menu-count'>{this.props.cartProducts.length}</p>
                 </div>
                 <div className='cart-menu-items-wrapper'>
-                    <CartItemList />
+                    <CartItemList cartProducts={this.props.cartProducts} />
                 </div>
             </div>
         );

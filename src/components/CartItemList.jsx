@@ -1,9 +1,19 @@
+import React, { Component } from 'react';
 import CartItem from './CartItem';
 
-class CartItemList extends Component {
-    state = {  } 
+class CartItemList extends Component { 
+    componentDidMount() {
+        console.log(this.props.cartProducts)
+    }
+
     render() { 
-        return ();
+        return (
+            <div>
+                {this.props.cartProducts.map((item, index) => 
+                    <CartItem key={index} data={item} />    
+                )}
+            </div>
+        );
     }
 }
  
