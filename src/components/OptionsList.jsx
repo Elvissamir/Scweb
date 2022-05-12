@@ -6,7 +6,12 @@ class OptionsList extends Component {
         return (
             <div className='attribute-options-wrapper'>
                 {this.props.options.map(option => 
-                   <Option key={option.id} data={option} />
+                   <Option 
+                        key={option.id} 
+                        data={option}
+                        selected={this.props.selectedOption === option.id}
+                        attributeType={this.props.attributeType}
+                        onSelectOption={this.props.onSelectOption} />
                 )}
             </div>
         );

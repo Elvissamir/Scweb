@@ -1,22 +1,32 @@
 import { Component } from "react"
 
 class Option extends Component {
-    selectAttributeOptionCss = (attribute, option, productOptions) => {
+
+    componentDidMount() {
+        console.log('option', this.props)
+    }
+
+
+    selectAttributeOptionCss = () => {
         const baseCss = 'attribute-option'
         const swatchCss = 'option-swatch'
         const textCss = 'option-text'
-        const attributeCss = attribute.type === 'text'? `${baseCss} ${textCss}` : `${baseCss} ${swatchCss}`
+        const optionCss = this.props.attributeType === 'text'? `${baseCss} ${textCss}` : `${baseCss} ${swatchCss}`
 
-       
+        if (this.props.selected)
+            return (this.props.attributeType === 'text'? optionCss + ' attribute-selected-text': optionCss + ' attribute-selected-swatch')
+        
+        return optionCss
     }
 
     render() { 
         return (
             <button 
-                //onClick={this.props.onSelectAttributeOption(this.props.attribute.name, this.props.data.value)}
-                key={this.props.data.value} 
-                className='attribute-option option-text'>
-                Hola
+                onClick={() => this.props.onSelectOption(this.props.data.id)}
+                key={this.props.data.value}
+                className={this.selectAttributeOptionCss()}
+                style={this.props.attributeType === 'swatch'? {backgroundColor: this.props.data.value} : {}}>
+                {this.props.attributeType !== 'swatch' && this.props.data.value}
             </button>
         )
     }
