@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import { Markup } from "interweave";
 import selectPriceToShow from '../utils/selectPriceToShow';
 import AttributeList from "./AttributeList";
-import { connect } from "react-redux";
 
 class ProductItem extends Component {
     componentDidMount() {
-        console.log(this.props.data)
+        console.log('Product item props', this.props)
     }
+
+    handleSelectAttribute = () => {
+        console.log('selected attribute')
+    }    
 
     renderGallery = () => {
         <div className="product-item-gallery">
@@ -15,20 +18,6 @@ class ProductItem extends Component {
                 <img className="product-item-gallery-option" key={index} src={img} alt="" />    
             )}
         </div>
-    }
-
-    renderInfoMessage = () => {
-        const { showSelectOptionsMessage, selectOptionsMessage } = this.props
-        if (showSelectOptionsMessage && selectOptionsMessage.message && !selectOptionsMessage.attribute)
-            return selectOptionsMessage.message
-    }
-
-    renderAttributeInfo = attribute => {
-        const { showSelectOptionsMessage, selectOptionsMessage } = this.props
-        if (selectOptionsMessage.attribute && showSelectOptionsMessage) {
-            if (attribute.name === selectOptionsMessage.attribute)
-                return selectOptionsMessage.message
-        }
     }
 
     render() { 
@@ -43,10 +32,7 @@ class ProductItem extends Component {
                 <div className='product-item-details'>
                     <p className='product-item-title'>{this.props.data.brand + " - " + this.props.data.name}</p>
                     <div className="product-item-attributes">
-                        {this.props.data && 
-                            <AttributeList 
-                                attributes={this.props.data.attributes}
-                                options={this.props.data.options} />}
+                        <AttributeList attributes={this.props.data.attributes} />
                     </div>
                     <div className="product-item-price-wrapper">
                         <p className="product-item-price">PRICE: </p>
@@ -54,7 +40,7 @@ class ProductItem extends Component {
                     </div>
                     <div className="product-item-btn-wrapper">
                         <p className="error-message">
-                            {this.renderInfoMessage()}
+                           
                         </p>
                         <button 
                             onClick={() => this.props.onAddToCart(this.props.data)} 
@@ -69,8 +55,4 @@ class ProductItem extends Component {
     }
 }
  
-const mapStateToProps = state => ({
-    activeCurrency: state.currency.activeCurrency
-})
- 
-export default connect(mapStateToProps)(ProductItem);
+export default ProductItem;

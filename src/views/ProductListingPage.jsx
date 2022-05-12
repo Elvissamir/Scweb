@@ -15,10 +15,7 @@ class ProductListingPage extends Component {
         hasData: false,
         error: false,
         showProductWindow: false,
-        showSelectOptionsMessage: false,
-        selectOptionsMessage: { attribute: null, message: null },
         currentProduct: {},
-        prevProductId: null,
         products: []
     }
 
@@ -42,7 +39,7 @@ class ProductListingPage extends Component {
             this.setState({ hasData: false, error: true })
     }
 
-    showProductPopup = product => {
+    openProductPopup = product => {
         this.props.activateModal({ active: true })
 
         if (product.id !== this.state.currentProduct.id)
@@ -56,57 +53,19 @@ class ProductListingPage extends Component {
         this.setState({ showProductWindow: false })
     }
 
-    addAttributeValue = (attributeName, value) => e => {
-        const product = {...this.state.currentProduct}
-
-        if (product.options)
-            product.options[attributeName] = value
-        else 
-            product.options = { [attributeName]: value }
-
-        this.setState({ currentProduct: product })
-    }
-
     handleAddToCart = product => {
-        const {valid, error} = shouldAddToCart(product)
-
-        if (valid) {
-            this.setState({ showSelectOptionsMessage: false })
-            this.props.addCartProduct({ product })
-
-            if (this.state.showProductWindow)
-                this.closeProductPopup()
-            this.setState({ currentProduct: {} })
-        }
-        else if (!valid && !this.state.showProductWindow) {
-            if (product.id !== this.state.prevProductId) {
-                this.setState({ 
-                    showSelectOptionsMessage: false,
-                    preveProductId: product.id
-                })
-            }
-            this.showProductPopup(product)
-        }
-        else {
-            this.setState({ 
-                selectOptionsMessage: { 
-                    attribute: error.attribute,  
-                    message: error.message
-                }, 
-                showSelectOptionsMessage: true
-            })
-        }
+        const { valid } = shouldAddToCart(product)
+        if (!valid)
+            return this.openProductPopup(product)
+        
+        return this.props.addCartProduct({ product })
     }
 
     renderPopup = () => {
-        if (this.state.currentProduct && this.state.showProductWindow) {
+        if (this.state.showProductWindow) {
             return <ProductPopup 
                         currentProduct={this.state.currentProduct}
                         onClose={this.closeProductPopup}
-                        onAddToCart={this.handleAddToCart}
-                        showSelectOptionsMessage={this.state.showSelectOptionsMessage}
-                        selectOptionsMessage={this.state.selectOptionsMessage}
-                        onSelectAttributeOption={this.addAttributeValue}
                         showProductWindow={this.state.showProductWindow} />
         }
     }

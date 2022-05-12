@@ -1,12 +1,8 @@
 import { Component } from 'react';
 import selectPriceToShow from '../utils/selectPriceToShow';
-import AttributeOptions from './AttributeOptions';
+import AttributeList from './AttributeList';
 
 class CartItem extends Component {
-    componentDidMount() {
-        console.log(this.props.data)
-    }
-
     render() { 
         return (
             <div className='cart-item'>
@@ -17,7 +13,7 @@ class CartItem extends Component {
                         {selectPriceToShow(this.props.data.prices, this.props.activeCurrency)}
                     </p>
                     <div className='cart-item-attributes'>
-                        <AttributeOptions attribute />
+                    
                     </div>
                 </div>
                 <div className='cart-item-right'>

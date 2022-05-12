@@ -15,8 +15,6 @@ class Nav extends Component {
     }
     
     async componentDidMount() {
-        console.log(this.props.cartProducts)
-
         const result = await findCategoriesAndCurrencies()
 
         if (!result.error) {

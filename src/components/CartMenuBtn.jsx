@@ -3,7 +3,7 @@ import CartCountIcon from './CartCountIcon';
 
 class CartMenuBtn extends Component {
     handleShowCartMenu = () => {
-        console.log('Show cart menu')
+       
     }
 
     render() { 
