@@ -7,12 +7,15 @@ import { connect } from "react-redux";
 
 class ProductItem extends Component {
     state = {
-        product: {options: {}}
+        product: {options: {}},
+        showSelectOptionsMessage: false
     }
 
     componentDidMount() {
         console.log('Product item props', this.props)
-        this.setState({ product: this.props.data })
+        const product = {...this.props.data}
+        product.options = {}
+        this.setState({ product })
     }
 
     handleAddToCart = () => {
@@ -30,6 +33,13 @@ class ProductItem extends Component {
     
         this.setState({ product })
     }    
+
+    renderSelectOptionsMessage = () => {
+        if (this.state.product.options && Object.keys(this.state.product.options).length === 0)
+            return 'Please select all the required options'
+
+        return ''
+    }
 
     renderGallery = () => {
         <div className="product-item-gallery">
@@ -62,7 +72,7 @@ class ProductItem extends Component {
                     </div>
                     <div className="product-item-btn-wrapper">
                         <p className="error-message">
-
+                            {this.renderSelectOptionsMessage()}
                         </p>
                         <button 
                             onClick={() => this.handleAddToCart(this.props.data)} 
