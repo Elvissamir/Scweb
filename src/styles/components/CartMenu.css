@@ -7,5 +7,24 @@
 }
 
 .cart-menu {
+    background-color: white;
     display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: 100%;
+    padding: 2em;
+    width: 500px;
+}
+
+.cart-menu-top {
+    display: flex;
+    font-weight: bold;
+}
+
+.cart-menu-count {
+    margin-left: 0.5em;
+}
+
+.cart-menu-items-wrapper {
+    margin-top: 1em;
 }

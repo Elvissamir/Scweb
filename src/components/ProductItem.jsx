@@ -13,16 +13,13 @@ class ProductItem extends Component {
     }
 
     componentDidMount() {
-        console.log('Product item props', this.props)
         const product = {...this.props.data}
         product.options = {}
         this.setState({ product })
     }
 
     handleAddToCart = () => {
-        console.log('add to cart')
         const error = shouldAddToCart(this.state.product)
-        console.log(error)
 
         if (!error) {
             this.props.addCartProduct({ product: this.state.product })
@@ -33,8 +30,6 @@ class ProductItem extends Component {
     }
 
     handleSelectAttribute = ({ attribute, value }) => {
-        console.log('selected attribute', attribute)
-
         const product = {...this.state.product}
         if (product.options)
             product.options[attribute] = value

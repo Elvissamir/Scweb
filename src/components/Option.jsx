@@ -1,12 +1,6 @@
 import { Component } from "react"
 
 class Option extends Component {
-
-    componentDidMount() {
-        console.log('option', this.props)
-    }
-
-
     selectAttributeOptionCss = () => {
         const baseCss = 'attribute-option'
         const swatchCss = 'option-swatch'

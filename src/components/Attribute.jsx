@@ -2,12 +2,7 @@ import { Component } from "react";
 import OptionsList from "./OptionsList"
 
 class Attribute extends Component {
-    componentDidMount() {
-        console.log('Attribute', this.props)
-    }
-
     handleSelectOption = value => {
-        console.log('Select option', value)
         return this.props.onSelectAttribute({ attribute: this.props.data.name, value })
     }
 
