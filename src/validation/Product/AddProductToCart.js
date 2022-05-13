@@ -17,25 +17,20 @@ const productHasRequiredOptions = product => {
 }
 
 const shouldAddToCart = product => {
-    const result = {error: {}, valid: null}
+    const result = {error: {}}
 
-    if (product.attributes.length === 0 || productHasRequiredOptions(product)) {
-        result.valid = true 
+    if (product.attributes.length === 0 || productHasRequiredOptions(product))
+        return null
+
+    if (!product.options) {
+        result.error = {message: selectAllOptionsMessage}
         return result
     }
-    else {
-        result.valid = false
 
-        if (!product.options) {
-            result.error.message = selectAllOptionsMessage
-            return result
-        }
-
-        const missingAttributeName = findRequiredAttribute(product)
-        result.error.attribute = missingAttributeName
-        result.error.message = getSelectProductOptionMessage(missingAttributeName)
-        return result
-    }
+    const missingAttributeName = findRequiredAttribute(product)
+    result.error.attribute = missingAttributeName
+    result.error.message = getSelectProductOptionMessage(missingAttributeName)
+    return result
 }
 
 export default shouldAddToCart

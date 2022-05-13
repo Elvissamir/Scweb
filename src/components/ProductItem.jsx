@@ -3,6 +3,7 @@ import { Markup } from "interweave";
 import selectPriceToShow from '../utils/selectPriceToShow';
 import AttributeList from "./AttributeList";
 import { addCartProduct } from '../store/features/cart/cartSlice';
+import shouldAddToCart from "../validation/Product/AddProductToCart";
 import { connect } from "react-redux";
 
 class ProductItem extends Component {
@@ -20,6 +21,10 @@ class ProductItem extends Component {
 
     handleAddToCart = () => {
         console.log('add to cart')
+        const { valid, error } = shouldAddToCart(this.state.product)
+
+        if (!valid)
+            return this.setState({ showSelectOptionsMessage: true })
     }
 
     handleSelectAttribute = ({ attribute, value }) => {
@@ -35,7 +40,7 @@ class ProductItem extends Component {
     }    
 
     renderSelectOptionsMessage = () => {
-        if (this.state.product.options && Object.keys(this.state.product.options).length === 0)
+        if (this.state.showSelectOptionsMessage && Object.keys(this.state.product.options).length === 0)
             return 'Please select all the required options'
 
         return ''
