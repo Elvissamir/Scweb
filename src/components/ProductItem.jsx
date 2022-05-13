@@ -40,7 +40,10 @@ class ProductItem extends Component {
             product.options[attribute] = value
         else 
             product.options = { [attribute]: value }
-    
+
+        if (this.state.attributeError.attribute === attribute)
+            this.setState({ attributeError: {} })
+            
         this.setState({ product })
     }    
 
