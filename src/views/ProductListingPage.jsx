@@ -54,8 +54,8 @@ class ProductListingPage extends Component {
     }
 
     handleAddToCart = product => {
-        const { valid } = shouldAddToCart(product)
-        if (!valid)
+        const error = shouldAddToCart(product)
+        if (error)
             return this.openProductPopup(product)
         
         return this.props.addCartProduct({ product })

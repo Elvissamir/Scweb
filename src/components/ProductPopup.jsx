@@ -11,6 +11,7 @@ class ProductPopup extends Component {
                 <div className='plp-popup-content'>
                     <ProductItem 
                         data={this.props.currentProduct} 
+                        onAddedToCart={this.props.onClose}
                         showGallery={false} />
                 </div>
             </div>

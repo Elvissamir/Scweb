@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 class ProductItem extends Component {
     state = {
         product: {options: {}},
-        showSelectOptionsMessage: false
+        attributeError: {},
     }
 
     componentDidMount() {
@@ -21,10 +21,15 @@ class ProductItem extends Component {
 
     handleAddToCart = () => {
         console.log('add to cart')
-        const { valid, error } = shouldAddToCart(this.state.product)
+        const error = shouldAddToCart(this.state.product)
+        console.log(error)
 
-        if (!valid)
-            return this.setState({ showSelectOptionsMessage: true })
+        if (!error) {
+            this.props.addCartProduct({ product: this.state.product })
+            return this.props.onAddedToCart()
+        }
+
+        return this.setState({ attributeError: error })
     }
 
     handleSelectAttribute = ({ attribute, value }) => {
@@ -38,13 +43,6 @@ class ProductItem extends Component {
     
         this.setState({ product })
     }    
-
-    renderSelectOptionsMessage = () => {
-        if (this.state.showSelectOptionsMessage && Object.keys(this.state.product.options).length === 0)
-            return 'Please select all the required options'
-
-        return ''
-    }
 
     renderGallery = () => {
         <div className="product-item-gallery">
@@ -69,16 +67,14 @@ class ProductItem extends Component {
                         <AttributeList 
                             productOptions={this.state.product.options}
                             onSelectAttribute={this.handleSelectAttribute} 
-                            attributes={this.props.data.attributes} />
+                            attributes={this.props.data.attributes} 
+                            error={this.state.attributeError}/>
                     </div>
                     <div className="product-item-price-wrapper">
                         <p className="product-item-price">PRICE: </p>
                         <p className="product-item-amount">{selectPriceToShow(this.props.data.prices, this.props.activeCurrency)}</p>
                     </div>
                     <div className="product-item-btn-wrapper">
-                        <p className="error-message">
-                            {this.renderSelectOptionsMessage()}
-                        </p>
                         <button 
                             onClick={() => this.handleAddToCart(this.props.data)} 
                             className="btn action-btn">ADD TO CART</button>

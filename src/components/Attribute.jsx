@@ -22,7 +22,7 @@ class Attribute extends Component {
                         selectedOption={this.props.selectedOption}
                         onSelectOption={this.handleSelectOption} />
                 </div>
-                <div className="error-message"></div>
+                <div className="error-message">{this.props.error && this.props.error}</div>
             </div>
         ) 
     }
