@@ -20,6 +20,7 @@ class AttributeList extends Component {
                 {this.props.attributes.map(attribute => 
                     <Attribute 
                         key={attribute.name}
+                        isInCart={this.props.isInCart}
                         error={this.hasError(attribute)}
                         selectedOption={this.isSelectedOption(attribute)} 
                         onSelectAttribute={this.props.onSelectAttribute}
@@ -30,4 +31,4 @@ class AttributeList extends Component {
     }
 }
  
-export default AttributeList;
+export default AttributeList

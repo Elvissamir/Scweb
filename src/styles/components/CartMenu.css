@@ -7,7 +7,7 @@
 }
 
 .cart-menu {
-    background-color: lightgray;
+    background-color: white;
     display: flex;
     position: absolute;
     flex-direction: column;
