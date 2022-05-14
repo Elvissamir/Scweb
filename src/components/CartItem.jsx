@@ -13,7 +13,10 @@ class CartItem extends Component {
                         {selectPriceToShow(this.props.data.prices, this.props.activeCurrency)}
                     </p>
                     <div className='cart-item-attributes'>
-                        <AttributeList attributes={this.props.data.attributes} error={{}} />
+                        <AttributeList 
+                            attributes={this.props.data.attributes} 
+                            isInCart={true}
+                            error={{}} />
                     </div>
                 </div>
                 <div className='cart-item-right'>

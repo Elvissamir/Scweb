@@ -9,7 +9,7 @@ class Attribute extends Component {
     render() { 
         return (
             <div className='product-item-attribute'>
-                <p className={this.isInCart? 'attribute-name-cart':'attribute-name'}>{this.props.data.name.toUpperCase()}:</p>
+                <p className={this.props.isInCart? 'attribute-name-cart':'attribute-name'}>{this.props.data.name.toUpperCase()}:</p>
                 <div>
                    <OptionsList 
                         options={this.props.data.items}

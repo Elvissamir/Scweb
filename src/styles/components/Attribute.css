@@ -1,6 +1,10 @@
-.attribute-name {
+.attribute-name, .attribute-name-cart {
     font-weight: bold;
     margin-top: 1em;
+}
+
+.attribute-name-cart {
+    font-size: 0.8em;
 }
 
 .attribute-options-wrapper {
