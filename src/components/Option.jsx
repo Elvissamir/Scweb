@@ -10,7 +10,7 @@ class Option extends Component {
         const optionCss = this.props.attributeType === 'text'? `${baseCss} ${textCss}` : `${baseCss} ${swatchCss}`
 
         if (this.props.selected)
-            return (this.props.attributeType === 'text'? optionCss + selectedTextCss: optionCss + selectedSwatchCss)
+            return (this.props.attributeType === 'text'? optionCss + ' ' + selectedTextCss: optionCss + ' ' + selectedSwatchCss)
         
         return optionCss
     }

@@ -61,4 +61,5 @@
 .cart-menu-checkout {
     background-color: var(--brand-active);
     border: 1px white solid;
+    color: white;
 }

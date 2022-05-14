@@ -51,3 +51,9 @@
     justify-content: space-between;
     margin-right: 0.5em;
 }
+
+.cart-menu-item-count {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
