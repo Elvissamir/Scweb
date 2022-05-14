@@ -2,13 +2,15 @@ import { Component } from "react"
 
 class Option extends Component {
     selectAttributeOptionCss = () => {
-        const baseCss = 'attribute-option'
-        const swatchCss = 'option-swatch'
-        const textCss = 'option-text'
+        const baseCss = this.props.isInCart? 'attribute-option-cart':'attribute-option'
+        const swatchCss = this.props.isInCart? 'option-swatch-cart':'option-swatch'
+        const textCss = this.props.isInCart? 'option-text-cart':'option-text'
+        const selectedTextCss = 'attribute-selected-text'
+        const selectedSwatchCss = 'attribute-selected-swatch'
         const optionCss = this.props.attributeType === 'text'? `${baseCss} ${textCss}` : `${baseCss} ${swatchCss}`
 
         if (this.props.selected)
-            return (this.props.attributeType === 'text'? optionCss + ' attribute-selected-text': optionCss + ' attribute-selected-swatch')
+            return (this.props.attributeType === 'text'? optionCss + selectedTextCss: optionCss + selectedSwatchCss)
         
         return optionCss
     }

@@ -1,15 +1,42 @@
-.option-text {
+.attribute-option {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+}
+
+.attribute-option-cart {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+}
+
+.option-text, .option-text-cart {
     background-color: white;
     border: 2px rgba(10, 10, 10, 0.8) solid;
     font-weight: bold;
+}
+
+.option-swatch-cart {
+    height: 20px;
+    width: 20px;
+}
+
+.option-text-cart {
+    font-size: 0.5em;
 }
 
 .option-text:hover {
     background-color: lightgray;
 }
 
-.attribute-option:not(:first-child) {
-    margin-left: 1em;
+.attribute-option:not(:first-child), .attribute-option-cart:not(:first-child) {
+    margin-left: 0.5em;
 }
 
 .attribute-selected-text, .attribute-selected-swatch {

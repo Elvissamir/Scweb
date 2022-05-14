@@ -9,6 +9,7 @@ class OptionsList extends Component {
                    <Option 
                         key={option.id} 
                         data={option}
+                        isInCart={this.props.isInCart}
                         selected={this.props.selectedOption === option.id}
                         attributeType={this.props.attributeType}
                         onSelectOption={this.props.onSelectOption} />

@@ -13,6 +13,7 @@ class Attribute extends Component {
                 <div>
                    <OptionsList 
                         options={this.props.data.items}
+                        isInCart={this.props.isInCart}
                         attributeType={this.props.data.type}
                         selectedOption={this.props.selectedOption}
                         onSelectOption={this.handleSelectOption} />
