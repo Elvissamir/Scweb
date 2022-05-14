@@ -7,17 +7,20 @@
 }
 
 .cart-menu {
-    background-color: white;
+    background-color: lightgray;
     display: flex;
     position: absolute;
     flex-direction: column;
     top: 100%;
-    padding: 2em;
-    width: 500px;
+    padding: 2em 1em;
+    width: auto;
 }
 
 .cart-menu-top {
     display: flex;
+}
+
+.cart-menu-bag-text {
     font-weight: bold;
 }
 
@@ -27,4 +30,27 @@
 
 .cart-menu-items-wrapper {
     margin-top: 1em;
+}
+
+.cart-menu-total {
+    display: flex;
+    font-weight: bold;
+    justify-content: space-between;
+    margin-top: 2em;
+}
+
+.cart-menu-view-bag, .cart-menu-checkout {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 1em;
+}
+
+.cart-menu-view-bag {
+    background-color: white;
+    border: 1px black solid;
+}
+
+.cart-menu-checkout {
+    background-color: var(--brand-active);
+    border: 1px white solid;
 }

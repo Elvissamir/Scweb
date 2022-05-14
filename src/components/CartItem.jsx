@@ -13,11 +13,21 @@ class CartItem extends Component {
                         {selectPriceToShow(this.props.data.prices, this.props.activeCurrency)}
                     </p>
                     <div className='cart-item-attributes'>
-                    
+                        <AttributeList attributes={this.props.data.attributes} error={{}} />
                     </div>
                 </div>
                 <div className='cart-item-right'>
-                    <div className='cart-item-controls'></div>
+                    <div className='cart-item-controls'>
+                        <div className='cart-menu-control-btn-wrapper'>
+                            <button className='cart-menu-control-btn'>+</button>
+                        </div>
+                        <div className='cart-menu-item-count'>
+                            {5}
+                        </div>
+                        <div className='cart-menu-control-btn-wrapper'>
+                            <button className='cart-menu-control-btn'>-</button>
+                        </div>
+                    </div>
                     <div className='cart-item-img-wrapper'>
                         <img 
                             className='cart-item-img' 

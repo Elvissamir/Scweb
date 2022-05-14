@@ -7,12 +7,22 @@ class CartMenu extends Component {
             <div className='cart-menu'>
                 <div className='cart-menu-top'>
                     <p className='cart-menu-bag-text'>My Bag</p>
-                    <p className='cart-menu-count'>{this.props.cartProducts.length}</p>
+                    <p className='cart-menu-count'>{this.props.cartProducts.length} items</p>
                 </div>
                 <div className='cart-menu-items-wrapper'>
                     <CartItemList 
                         cartProducts={this.props.cartProducts}
                         activeCurrency={this.props.activeCurrency} />
+                </div>
+                <div className='cart-menu-total'>
+                    <p>Total</p>
+                    <p>$200</p>
+                </div>
+                <div className='cart-menu-bottom-wrapper'>
+                    <div className='cart-menu-bottom'>
+                        <button className='cart-menu-view-bag'>VIEW BAG</button>
+                        <button className='cart-menu-checkout'>CHECK OUT</button>
+                    </div>
                 </div>
             </div>
         );
