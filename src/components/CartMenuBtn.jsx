@@ -10,7 +10,7 @@ class CartMenuBtn extends Component {
         return (
             <button onClick={this.handleShowCartMenu} className='cart-btn'>
                 <img className='cart-btn-svg' src="/imgs/shopping.svg" alt="" />
-                <CartCountIcon productCount={this.props.productCount} />
+                <CartCountIcon itemCount={this.props.itemCount} />
             </button>
         );
     }

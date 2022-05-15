@@ -7,11 +7,11 @@ class CartMenu extends Component {
             <div className='cart-menu'>
                 <div className='cart-menu-top'>
                     <p className='cart-menu-bag-text'>My Bag</p>
-                    <p className='cart-menu-count'>{this.props.cartProducts.length} items</p>
+                    <p className='cart-menu-count'>{this.props.cartItems.length} items</p>
                 </div>
                 <div className='cart-menu-items-wrapper'>
                     <CartItemList 
-                        cartProducts={this.props.cartProducts}
+                        cartItems={this.props.cartItems}
                         activeCurrency={this.props.activeCurrency} />
                 </div>
                 <div className='cart-menu-total'>

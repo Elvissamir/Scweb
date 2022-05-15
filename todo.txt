@@ -7,10 +7,10 @@
  - Filtering products by category (All, Tech, Clothes)-------------------READY
  - Button to add product to cart, should select attributes first -------- READY
  - Show if product is out of stock --------------------------------------READY
- - Show popup if clicked the green button, if the product has no attributes, add to the cart
+ - Show popup if clicked the green button, if the product has no attributes, ---- READY
+ add to the cart
  else show the attributes in the popup ----------------------------------READY
 
- 
 ### PRODUCT DESCRIPTION PAGE 
  - Select options of the product --------------------------------- READY
  - Show properties (name, description, price) ------------------- READY
@@ -19,7 +19,6 @@
 ### CART PAGE
  - Add or remove products and change their amounts 
  - The selected options of the product should be visible
-
 
 ++++++++++++++++++++++++++++++++++++++++
 
@@ -30,3 +29,5 @@ IN CART MENU
 - Change item selected option
 - On click for check out button clean cart 
 - On click for view bag button, go to cart page
+- Show price for each cart item in active currency
+- Show total price 

@@ -5,7 +5,7 @@ class CartItemList extends Component {
     render() { 
         return (
             <div className='cart-item-list-wrapper'>
-                {this.props.cartProducts.map((item, index) => 
+                {this.props.cartItems.map((item, index) => 
                     <CartItem 
                         key={index} 
                         data={item}

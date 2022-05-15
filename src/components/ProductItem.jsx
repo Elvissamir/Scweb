@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Markup } from "interweave";
 import selectPriceToShow from '../utils/selectPriceToShow';
 import AttributeList from "./AttributeList";
-import { addCartProduct } from '../store/features/cart/cartSlice';
+import { addCartItem } from '../store/features/cart/cartSlice';
 import shouldAddToCart from "../validation/Product/AddProductToCart";
 import { connect } from "react-redux";
 
@@ -22,7 +22,7 @@ class ProductItem extends Component {
         const error = shouldAddToCart(this.state.product)
 
         if (!error) {
-            this.props.addCartProduct({ product: this.state.product })
+            this.props.addCartItem({ product: this.state.product })
             return this.props.onAddedToCart()
         }
 
@@ -92,7 +92,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    addCartProduct: (payload) => dispatch(addCartProduct(payload))
+    addCartItem: (payload) => dispatch(addCartItem(payload))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductItem);

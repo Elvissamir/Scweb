@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { findProductsByCategory } from '../services/http/ProductListing/ProductListingPage';
-import { addCartProduct } from '../store/features/cart/cartSlice';
+import { addCartItem } from '../store/features/cart/cartSlice';
 import { activateModal } from '../store/features/modal/modalSlice';
 import shouldAddToCart from '../validation/Product/AddProductToCart';
+import mapProductToCartItem from '../utils/mapProductToCartItem';
 import ProductPopup from '../components/ProductPopup';
 import ErrorBlock from '../components/ErrorBlock';
 import NoDataBlock from '../components/NoDataBlock';
@@ -58,7 +59,8 @@ class ProductListingPage extends Component {
         if (error)
             return this.openProductPopup(product)
         
-        return this.props.addCartProduct({ product })
+        const cartItem = mapProductToCartItem(product)
+        this.props.addCartItem({ item: cartItem })
     }
 
     renderPopup = () => {
@@ -111,12 +113,12 @@ class ProductListingPage extends Component {
 const mapStateToProps = state => ({
     activeCategory: state.category.activeCategory,
     activeCurrency: state.currency.activeCurrency,
-    cart: state.cart.products,
+    cart: state.cart.items,
     showModal: state.modal.activeModal
 })
 
 const mapDispatchToProps = dispatch => ({
-    addCartProduct: (payload) => dispatch(addCartProduct(payload)),
+    addCartItem: (payload) => dispatch(addCartItem(payload)),
     activateModal: (payload) => dispatch(activateModal(payload))
 })
 

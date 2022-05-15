@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { findProductById } from '../services/http/Product/ProductPage';
 import withRouter from '../components/withRouter';
-import { addCartProduct } from '../store/features/cart/cartSlice';
+import { addCartItem } from '../store/features/cart/cartSlice';
 import shouldAddToCart from '../validation/Product/AddProductToCart';
 import ProductItem from '../components/ProductItem';
 import { connect } from 'react-redux';
@@ -95,7 +95,7 @@ class ProductPage extends Component {
 const mapStateToProps = () => ({})
 
 const mapDispatchToProps = dispatch => ({
-    addCartProduct: (payload) => dispatch(addCartProduct(payload)),
+    addCartItem: (payload) => dispatch(addCartItem(payload)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProductPage))

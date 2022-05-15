@@ -58,10 +58,10 @@ class Nav extends Component {
                             </div>
                             <div className='cart-menu-wrapper'>
                                 <CartMenuBtn 
-                                    productCount={this.props.cartProducts.length} />
+                                    itemCount={this.props.cartItems.length} />
                                 <CartMenu 
                                     activeCurrency={this.props.activeCurrency}
-                                    cartProducts={this.props.cartProducts} />
+                                    cartItems={this.props.cartItems} />
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ class Nav extends Component {
 const mapStateToProps = state => ({
     activeCategory: state.category.activeCategory,
     activeCurrency: state.currency.activeCurrency,
-    cartProducts: state.cart.products
+    cartItems: state.cart.items
 })
 
 const mapDispatchToProps = dispatch => ({
