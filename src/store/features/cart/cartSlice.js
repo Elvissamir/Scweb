@@ -16,6 +16,26 @@ export const cartSlice = createSlice({
             else 
                 cartItem.count += 1
         },
+        editCartItemOption: (state, action) => {
+            console.log('edit cart item option')
+            console.log(action.payload.item)
+            console.log(action.payload.selection)
+
+            const cartItem = state.items.find(item => {
+                if (item.id !== action.payload.item.id)
+                    return false
+                
+                for (let attribute of item.options) {
+                    if (!action.payload.options[attribute] || action.payload.options[attribute] !== item.options[attribute]) {
+                        return false
+                    }
+                }
+
+                return true
+            })
+
+            console.log(cartItem)
+        },
         removeCartItem: (state, action) => {
             state.items.filter(item => action.payload.id !== item.id)
         },
@@ -23,6 +43,6 @@ export const cartSlice = createSlice({
     } 
 })
 
-export const { addCartItem, removeCartItem, resetCart } = cartSlice.actions
+export const { addCartItem, editCartItemOption, removeCartItem, resetCart } = cartSlice.actions
 
 export default cartSlice.reducer

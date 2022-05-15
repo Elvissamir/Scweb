@@ -3,6 +3,10 @@ import selectPriceToShow from '../utils/selectPriceToShow';
 import AttributeList from './AttributeList';
 
 class CartItem extends Component {
+    selectedItemAttribute = selectionData => {
+        this.props.onSelectAttribute(this.props.data, selectionData)
+    }
+
     render() { 
         return (
             <div className='cart-item'>
@@ -16,7 +20,7 @@ class CartItem extends Component {
                         <AttributeList 
                             attributes={this.props.data.attributes} 
                             productOptions={this.props.data.options}
-                            // onSelectAttribute={this.handleSelectAttribute} 
+                            onSelectAttribute={this.selectedItemAttribute} 
                             isInCart={true}
                             error={{}} />
                     </div>

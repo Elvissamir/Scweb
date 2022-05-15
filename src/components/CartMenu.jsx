@@ -16,6 +16,7 @@ class CartMenu extends Component {
                 <div className='cart-menu-items-wrapper'>
                     <CartItemList 
                         cartItems={this.props.cartItems}
+                        onSelectAttribute={this.props.onSelectAttribute}
                         onIncreaseCount={this.handleIncreaseCount}
                         activeCurrency={this.props.activeCurrency} />
                 </div>

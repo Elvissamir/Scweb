@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { findCategoriesAndCurrencies } from '../../services/http/Nav/Nav';
 import { changeCategory } from '../../store/features/category/categorySlice';
 import { changeCurrency } from '../../store/features/currency/currencySlice'
-import { addCartItem } from '../../store/features/cart/cartSlice';
+import { addCartItem, editCartItemOption } from '../../store/features/cart/cartSlice';
 import { connect } from 'react-redux';
 import CurrenciesMenu from '../CurrenciesMenu';
 import CategoriesMenu from '../CategoriesMenu';
@@ -30,6 +30,12 @@ class Nav extends Component {
 
     handleAddCartItem = item => {
         this.props.addCartItem({ item })
+    }
+
+    handleSelectAttribute = (item, selection) => {
+        console.log('handle select attribute', selection)
+        console.log('item', item)
+        this.props.editCartItemOption({ item, selection })
     }
 
     handleCategorySelect = ({ target }) => {
@@ -67,7 +73,8 @@ class Nav extends Component {
                                 <CartMenu 
                                     activeCurrency={this.props.activeCurrency}
                                     cartItems={this.props.cartItems} 
-                                    onAddCartItem={this.handleAddCartItem}/>
+                                    onAddCartItem={this.handleAddCartItem}
+                                    onSelectAttribute={this.handleSelectAttribute}/>
                             </div>
                         </div>
                     </div>
@@ -87,6 +94,7 @@ const mapDispatchToProps = dispatch => ({
     changeCategory: (payload) => dispatch(changeCategory(payload)),
     changeCurrency: (payload) => dispatch(changeCurrency(payload)),
     addCartItem: (payload) => dispatch(addCartItem(payload)),
+    editCartItemOption: (payload) => dispatch(editCartItemOption(payload))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nav)
