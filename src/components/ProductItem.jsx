@@ -4,6 +4,7 @@ import selectPriceToShow from '../utils/selectPriceToShow';
 import AttributeList from "./AttributeList";
 import { addCartItem } from '../store/features/cart/cartSlice';
 import shouldAddToCart from "../validation/Product/AddProductToCart";
+import mapProductToCartItem from '../utils/mapProductToCartItem';
 import { connect } from "react-redux";
 
 class ProductItem extends Component {
@@ -22,7 +23,8 @@ class ProductItem extends Component {
         const error = shouldAddToCart(this.state.product)
 
         if (!error) {
-            this.props.addCartItem({ product: this.state.product })
+            const cartItem = mapProductToCartItem(this.state.product)
+            this.props.addCartItem({ item: cartItem })
             return this.props.onAddedToCart()
         }
 

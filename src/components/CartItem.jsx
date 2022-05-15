@@ -25,7 +25,7 @@ class CartItem extends Component {
                             <button className='cart-menu-control-btn'>+</button>
                         </div>
                         <div className='cart-menu-item-count'>
-                            {5}
+                            {this.props.data.count}
                         </div>
                         <div className='cart-menu-control-btn-wrapper'>
                             <button className='cart-menu-control-btn'>-</button>
