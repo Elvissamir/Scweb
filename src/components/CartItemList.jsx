@@ -9,7 +9,8 @@ class CartItemList extends Component {
                     <CartItem 
                         key={index} 
                         data={item}
-                        activeCurrency={this.props.activeCurrency} />
+                        activeCurrency={this.props.activeCurrency} 
+                        onIncreaseCount={this.props.onIncreaseCount}/>
                 )}
             </div>
         );

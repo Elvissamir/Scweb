@@ -22,7 +22,9 @@ class CartItem extends Component {
                 <div className='cart-item-right'>
                     <div className='cart-item-controls'>
                         <div className='cart-menu-control-btn-wrapper'>
-                            <button className='cart-menu-control-btn'>+</button>
+                            <button 
+                                onClick={() => this.props.onIncreaseCount(this.props.data)} 
+                                className='cart-menu-control-btn'>+</button>
                         </div>
                         <div className='cart-menu-item-count'>
                             {this.props.data.count}

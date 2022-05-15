@@ -24,10 +24,10 @@
 
 IN CART MENU
 - Decrease cartItem count, if count 0 remove from cart
-- Increase cartItem count 
+- Increase cartItem count
 - Show selected options
 - Change item selected option
-- On click for check out button clean cart 
+- On click for check out button clean cart
 - On click for view bag button, go to cart page
 - Show price for each cart item in active currency
-- Show total price 
+- Show total price

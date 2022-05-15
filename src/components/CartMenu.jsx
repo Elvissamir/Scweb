@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import CartItemList from './CartItemList';
 
 class CartMenu extends Component {     
-    render() { 
+    handleIncreaseCount = item => {
+        return this.props.onAddCartItem(item)
+    }
+
+    render() {
         return (
             <div className='cart-menu'>
                 <div className='cart-menu-top'>
@@ -12,6 +16,7 @@ class CartMenu extends Component {
                 <div className='cart-menu-items-wrapper'>
                     <CartItemList 
                         cartItems={this.props.cartItems}
+                        onIncreaseCount={this.handleIncreaseCount}
                         activeCurrency={this.props.activeCurrency} />
                 </div>
                 <div className='cart-menu-total'>
@@ -29,4 +34,4 @@ class CartMenu extends Component {
     }
 }
  
-export default CartMenu;
+export default CartMenu
