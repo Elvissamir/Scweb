@@ -15,6 +15,8 @@ class CartItem extends Component {
                     <div className='cart-item-attributes'>
                         <AttributeList 
                             attributes={this.props.data.attributes} 
+                            productOptions={this.props.data.options}
+                            // onSelectAttribute={this.handleSelectAttribute} 
                             isInCart={true}
                             error={{}} />
                     </div>

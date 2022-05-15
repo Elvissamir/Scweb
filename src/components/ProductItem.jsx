@@ -67,6 +67,7 @@ class ProductItem extends Component {
                         <AttributeList 
                             productOptions={this.state.product.options}
                             onSelectAttribute={this.handleSelectAttribute} 
+                            isInCart={false}
                             attributes={this.props.data.attributes} 
                             error={this.state.attributeError}/>
                     </div>

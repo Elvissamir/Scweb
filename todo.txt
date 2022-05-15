@@ -24,8 +24,8 @@
 
 IN CART MENU
 - Decrease cartItem count, if count 0 remove from cart
-- Increase cartItem count
-- Show selected options
+- Increase cartItem count --------------------------------READY
+- Show selected options ---------------------------------READY
 - Change item selected option
 - On click for check out button clean cart
 - On click for view bag button, go to cart page
