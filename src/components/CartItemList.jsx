@@ -11,7 +11,8 @@ class CartItemList extends Component {
                         data={item}
                         onSelectAttribute={this.props.onSelectAttribute}
                         activeCurrency={this.props.activeCurrency} 
-                        onIncreaseCount={this.props.onIncreaseCount}/>
+                        onIncreaseCount={this.props.onIncreaseCount}
+                        onDecreaseCount={this.props.onDecreaseCount}/>
                 )}
             </div>
         );

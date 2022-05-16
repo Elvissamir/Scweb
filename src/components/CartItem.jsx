@@ -36,7 +36,9 @@ class CartItem extends Component {
                             {this.props.data.count}
                         </div>
                         <div className='cart-menu-control-btn-wrapper'>
-                            <button className='cart-menu-control-btn'>-</button>
+                            <button 
+                                onClick={() => this.props.onDecreaseCount(this.props.data)} 
+                                className='cart-menu-control-btn'>-</button>
                         </div>
                     </div>
                     <div className='cart-item-img-wrapper'>

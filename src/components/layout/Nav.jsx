@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { findCategoriesAndCurrencies } from '../../services/http/Nav/Nav';
 import { changeCategory } from '../../store/features/category/categorySlice';
 import { changeCurrency } from '../../store/features/currency/currencySlice'
-import { addCartItem, editCartItemOption } from '../../store/features/cart/cartSlice';
+import { addCartItem, editCartItemOption, removeCartItem } from '../../store/features/cart/cartSlice';
 import { connect } from 'react-redux';
 import CurrenciesMenu from '../CurrenciesMenu';
 import CategoriesMenu from '../CategoriesMenu';
@@ -30,6 +30,10 @@ class Nav extends Component {
 
     handleAddCartItem = item => {
         this.props.addCartItem({ item })
+    }
+
+    handleRemoveCartItem = item => {
+        this.props.removeCartItem({ item })
     }
 
     handleSelectAttribute = (item, selection) => {
@@ -74,6 +78,7 @@ class Nav extends Component {
                                     activeCurrency={this.props.activeCurrency}
                                     cartItems={this.props.cartItems} 
                                     onAddCartItem={this.handleAddCartItem}
+                                    onRemoveCartItem={this.handleRemoveCartItem}
                                     onSelectAttribute={this.handleSelectAttribute}/>
                             </div>
                         </div>
@@ -94,6 +99,7 @@ const mapDispatchToProps = dispatch => ({
     changeCategory: (payload) => dispatch(changeCategory(payload)),
     changeCurrency: (payload) => dispatch(changeCurrency(payload)),
     addCartItem: (payload) => dispatch(addCartItem(payload)),
+    removeCartItem: (payload) => dispatch(removeCartItem(payload)),
     editCartItemOption: (payload) => dispatch(editCartItemOption(payload))
 })
 

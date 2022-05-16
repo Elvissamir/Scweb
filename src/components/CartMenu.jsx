@@ -6,6 +6,11 @@ class CartMenu extends Component {
         return this.props.onAddCartItem(item)
     }
 
+    handleDecreaseCount = item => {
+        console.log('handle decrease count')
+        return this.props.onRemoveCartItem(item)
+    }
+
     render() {
         return (
             <div className='cart-menu'>
@@ -18,6 +23,7 @@ class CartMenu extends Component {
                         cartItems={this.props.cartItems}
                         onSelectAttribute={this.props.onSelectAttribute}
                         onIncreaseCount={this.handleIncreaseCount}
+                        onDecreaseCount={this.handleDecreaseCount}
                         activeCurrency={this.props.activeCurrency} />
                 </div>
                 <div className='cart-menu-total'>
@@ -34,5 +40,5 @@ class CartMenu extends Component {
         );
     }
 }
- 
+
 export default CartMenu
