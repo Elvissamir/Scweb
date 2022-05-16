@@ -4,6 +4,7 @@ import ProductListingPage from '../views/ProductListingPage';
 import NotFound from '../views/NotFoundPage';
 import routes from '../routes';
 import ProductPage from '../views/ProductPage';
+import CartPage from '../views/CartPage';
 
 class Router extends Component {
     render () {
@@ -12,6 +13,7 @@ class Router extends Component {
                 <Route path='/' element={<Navigate to={`${routes.categories}/all`} replace />}/>
                 <Route path={`${routes.categories}/:category`} element={ <ProductListingPage /> } />
                 <Route path={`${routes.products}/:product`} element={ <ProductPage/> } />
+                <Route path={`${routes.cart}`} element={ <CartPage/> } />
                 <Route path='*' element={ <NotFound /> } />
             </Routes>
         )

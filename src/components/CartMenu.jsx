@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import CartItemList from './CartItemList';
+import { Link } from 'react-router-dom';
+import routes from '../routes';
 
 class CartMenu extends Component {     
     handleIncreaseCount = item => {
@@ -32,7 +34,12 @@ class CartMenu extends Component {
                 </div>
                 <div className='cart-menu-bottom-wrapper'>
                     <div className='cart-menu-bottom'>
-                        <button className='cart-menu-view-bag'>VIEW BAG</button>
+                        <Link 
+                            to={ routes.cart } 
+                            replace={true} 
+                            className='cart-menu-view-bag'>
+                            VIEW BAG
+                        </Link>
                         <button 
                             onClick={this.props.onCheckout} 
                             className='cart-menu-checkout'>CHECK OUT</button>

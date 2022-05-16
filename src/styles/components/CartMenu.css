@@ -54,8 +54,12 @@
 }
 
 .cart-menu-view-bag {
+    color: black;
     background-color: white;
     border: 1px black solid;
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
 }
 
 .cart-menu-checkout {
