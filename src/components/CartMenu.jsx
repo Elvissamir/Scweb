@@ -33,7 +33,9 @@ class CartMenu extends Component {
                 <div className='cart-menu-bottom-wrapper'>
                     <div className='cart-menu-bottom'>
                         <button className='cart-menu-view-bag'>VIEW BAG</button>
-                        <button className='cart-menu-checkout'>CHECK OUT</button>
+                        <button 
+                            onClick={this.props.onCheckout} 
+                            className='cart-menu-checkout'>CHECK OUT</button>
                     </div>
                 </div>
             </div>
