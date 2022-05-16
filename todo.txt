@@ -1,5 +1,5 @@
 ### IN ALL PAGES
- - Add or remove products and change their amounts in cart overlay
+ - Add or remove products and change their amounts in cart overlay-------READY
  - The selected options of the product should be visible ----------------READY
  - Ability to change the currency for all pages -------------------------READY
 
@@ -15,7 +15,6 @@
  - Select options of the product --------------------------------- READY
  - Show properties (name, description, price) ------------------- READY
 
-
 ### CART PAGE
  - Add or remove products and change their amounts 
  - The selected options of the product should be visible
@@ -25,9 +24,9 @@
 IN CART MENU
 - Decrease cartItem count, if count 0 remove from cart----READY
 - Increase cartItem count --------------------------------READY
-- Show selected options ---------------------------------READY
-- Change item selected option----------------------------READY
-- On click for check out button clean cart
+- Show selected options ----------------------------------READY
+- Change item selected option-----------------------------READY
+- On click for check out button clean cart----------------READY
 - On click for view bag button, go to cart page
-- Show price for each cart item in active currency
+- Show price for each cart item in active currency--------READY
 - Show total price
