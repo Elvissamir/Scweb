@@ -18,9 +18,8 @@ export const cartSlice = createSlice({
                 cartItem.count += 1
         },
         editCartItemOption: (state, { payload }) => {
+            const cartItem = state.items.find(item => isSameItem(item, payload.item))
             
-            // add mapping and update item in map
-            const cartItem = {}
             cartItem.options[payload.selection.attribute] = payload.selection.value
         },
         removeCartItem: (state, { payload }) => {
