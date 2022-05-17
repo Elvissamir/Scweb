@@ -14,6 +14,10 @@ class ProductItem extends Component {
     }
 
     componentDidMount() {
+        this.productInit()
+    }
+
+    productInit = () => {
         const product = {...this.props.data}
         product.options = {}
         this.setState({ product })
@@ -25,10 +29,12 @@ class ProductItem extends Component {
         if (!error) {
             const cartItem = mapProductToCartItem(this.state.product)
             this.props.addCartItem({ item: cartItem })
+
+            this.productInit()
             return this.props.onAddedToCart()
         }
 
-        return this.setState({ attributeError: error })
+        this.setState({ attributeError: error })
     }
 
     handleSelectAttribute = ({ attribute, value }) => {
