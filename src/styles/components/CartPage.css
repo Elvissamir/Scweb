@@ -1,5 +1,19 @@
+.cart-info {
+    margin-top: 2em;
+}
+
+.order-btn-wrapper {
+    margin-top: 1em;
+}
+
 .order-btn {
+    color: white ;
+    background-color: var(--brand-active);
+    border: none;
+    cursor: pointer;
     display: flex;
+    font-weight: bold;
     justify-content: center;
+    padding: 1em;
     width: 200px;
 }

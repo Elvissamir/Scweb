@@ -2,6 +2,7 @@ import { Component } from 'react';
 import CartItemList from '../components/CartItemList';
 import { addCartItem, editCartItemOption, removeCartItem, resetCart } from '../store/features/cart/cartSlice';
 import { connect } from 'react-redux';
+import getTotalPrice from '../utils/getTotalPrice';
 
 class CartPage extends Component {
     handleIncreaseCount = item => {
@@ -31,8 +32,13 @@ class CartPage extends Component {
                     </div>
                 </div>
                 <div className='cart-info'>
-                    <div className='action-btn btn order-btn'>
-                        ORDER
+                    <p>Taxes: 23%</p>
+                    <p>Items: {this.props.cartItems.length}</p>
+                    <p>Total: {getTotalPrice(this.props.cartItems, this.props.activeCurrency)+this.props.activeCurrency}</p>
+                    <div className='order-btn-wrapper'>
+                        <button className='order-btn'>
+                            ORDER
+                        </button>
                     </div>
                 </div>
             </div>
