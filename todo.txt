@@ -22,7 +22,7 @@
 ++++++++++++++++++++++++++++++++++++++++
 
 IN CART MENU
-- Hide cart menu with cart menu btn
+- Hide cart menu with cart menu btn-----------------------READY
 - Decrease cartItem count, if count 0 remove from cart----READY
 - Increase cartItem count --------------------------------READY
 - Show selected options ----------------------------------READY
