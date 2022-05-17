@@ -30,6 +30,11 @@ class CartPage extends Component {
                             activeCurrency={this.props.activeCurrency} />
                     </div>
                 </div>
+                <div className='cart-info'>
+                    <div className='action-btn btn order-btn'>
+                        ORDER
+                    </div>
+                </div>
             </div>
         );
     }

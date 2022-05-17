@@ -16,8 +16,12 @@
  - Show properties (name, description, price) ------------------- READY
 
 ### CART PAGE
- - Add or remove products and change their amounts 
+ - Add or remove products and change their amounts ---------------READY
  - The selected options of the product should be visible
+ - Show the total price 
+ - Show the taxes
+ - Clear cart click on Order
+ - Change product picture on click for < > buttons
 
 ++++++++++++++++++++++++++++++++++++++++
 
