@@ -2,6 +2,35 @@
     margin-top: 2em;
 }
 
+.cart-details {
+    display: flex;
+}
+
+.cart-info-labels {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-info-values {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-quantity {
+    margin-left: 1em;
+    font-weight: bold;
+}
+
+.cart-tax {
+    margin-left: 1em;
+    font-weight: bold;
+}
+
+.cart-total {
+    margin-left: 1em;
+    font-weight: bold;
+}
+
 .order-btn-wrapper {
     margin-top: 1em;
 }

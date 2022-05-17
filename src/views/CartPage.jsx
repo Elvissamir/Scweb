@@ -32,9 +32,18 @@ class CartPage extends Component {
                     </div>
                 </div>
                 <div className='cart-info'>
-                    <p>Taxes: 23%</p>
-                    <p>Items: {this.props.cartItems.length}</p>
-                    <p>Total: {getTotalPrice(this.props.cartItems, this.props.activeCurrency)+this.props.activeCurrency}</p>
+                    <div className='cart-details'>
+                        <div className='cart-info-labels'>
+                            <p>Tax 21%:</p>
+                            <p>Quantity:</p>
+                            <p>Total:</p>
+                        </div>
+                        <div className='cart-info-values'>
+                            <p className='cart-tax'>50</p>
+                            <p className='cart-quantity'>{this.props.cartItems.length}</p>
+                            <p className='cart-total'>{getTotalPrice(this.props.cartItems, this.props.activeCurrency)+this.props.activeCurrency}</p>
+                        </div>
+                    </div>
                     <div className='order-btn-wrapper'>
                         <button className='order-btn'>
                             ORDER
