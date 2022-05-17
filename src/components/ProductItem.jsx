@@ -97,7 +97,6 @@ class ProductItem extends Component {
  
 const mapStateToProps = state => ({
     activeCurrency: state.currency.activeCurrency,
-    cart: state.cart.products,
 })
 
 const mapDispatchToProps = dispatch => ({

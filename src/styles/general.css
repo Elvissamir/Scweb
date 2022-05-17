@@ -68,3 +68,7 @@ code {
 .action-btn:hover {
   background-color: var(--brand-active);
 }
+
+.title {
+  font-size: 2em
+}

@@ -46,8 +46,6 @@ class Nav extends Component {
     }
 
     handleSelectAttribute = (item, selection) => {
-        console.log('handle select attribute', selection)
-        console.log('item', item)
         this.props.editCartItemOption({ item, selection })
     }
 
