@@ -15,7 +15,7 @@ class CartMenu extends Component {
 
     render() {
         return (
-            <div className='cart-menu'>
+            <div className={this.props.show? 'cart-menu' : 'hide'}>
                 <div className='cart-menu-top'>
                     <p className='cart-menu-bag-text'>My Bag</p>
                     <p className='cart-menu-count'>{this.props.cartItems.length} items</p>

@@ -22,11 +22,12 @@
 ++++++++++++++++++++++++++++++++++++++++
 
 IN CART MENU
+- Hide cart menu with cart menu btn
 - Decrease cartItem count, if count 0 remove from cart----READY
 - Increase cartItem count --------------------------------READY
 - Show selected options ----------------------------------READY
 - Change item selected option-----------------------------READY
 - On click for check out button clean cart----------------READY
-- On click for view bag button, go to cart page
+- On click for view bag button, go to cart page-----------READY
 - Show price for each cart item in active currency--------READY
-- Show total price
+- Show total price in active currency

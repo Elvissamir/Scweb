@@ -13,6 +13,7 @@ class Nav extends Component {
     state = { 
         categories: [], 
         currencies: [],
+        showCartMenu: false
     }
     
     async componentDidMount() {
@@ -26,6 +27,10 @@ class Nav extends Component {
         else {
             console.log('error')
         }
+    }
+
+    handleToggleCartMenu = () => {
+        this.setState({ showCartMenu: !this.state.showCartMenu })
     }
 
     handleAddCartItem = item => {
@@ -77,10 +82,12 @@ class Nav extends Component {
                             </div>
                             <div className='cart-menu-wrapper'>
                                 <CartMenuBtn 
-                                    itemCount={this.props.cartItems.length} />
+                                    itemCount={this.props.cartItems.length}
+                                    onToggleCartMenu={this.handleToggleCartMenu} />
                                 <CartMenu 
                                     activeCurrency={this.props.activeCurrency}
                                     cartItems={this.props.cartItems} 
+                                    show={this.state.showCartMenu}
                                     onAddCartItem={this.handleAddCartItem}
                                     onRemoveCartItem={this.handleRemoveCartItem}
                                     onCheckout={this.handleCheckout}
