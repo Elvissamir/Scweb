@@ -30,6 +30,8 @@
 
 .cart-menu-items-wrapper {
     margin-top: 1em;
+    max-height: 450px;
+    overflow-y: scroll;
 }
 
 .cart-menu-total {

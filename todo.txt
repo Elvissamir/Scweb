@@ -30,4 +30,4 @@ IN CART MENU
 - On click for check out button clean cart----------------READY
 - On click for view bag button, go to cart page-----------READY
 - Show price for each cart item in active currency--------READY
-- Show total price in active currency
+- Show total price in active currency---------------------READY

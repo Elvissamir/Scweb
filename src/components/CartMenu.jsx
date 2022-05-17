@@ -5,10 +5,6 @@ import routes from '../routes';
 import getTotalPrice from '../utils/getTotalPrice';
 
 class CartMenu extends Component {     
-    showTotalPrice = () => {
-        return getTotalPrice(this.props.cartItems, this.props.activeCurrency)
-    }
-
     handleIncreaseCount = item => {
         this.props.onAddCartItem(item)
     }
@@ -35,7 +31,7 @@ class CartMenu extends Component {
                     </div>
                     <div className='cart-menu-total'>
                         <p>Total: </p>
-                        <p>{this.props.show && this.showTotalPrice() + this.props.activeCurrency }</p>
+                        <p>{getTotalPrice(this.props.cartItems, this.props.activeCurrency) + this.props.activeCurrency }</p>
                     </div>
                     <div className='cart-menu-bottom-wrapper'>
                         <div className='cart-menu-bottom'>
