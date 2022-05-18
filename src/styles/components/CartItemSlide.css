@@ -20,6 +20,13 @@
     padding: 0.5em;
 }
 
+.cart-item-slide-left img, .cart-item-slide-right img{
+    display: flex;
+    color: white;
+    cursor: pointer;
+    padding: 0.1em;
+}
+
 .cart-item-slide-left:hover, .cart-item-slide-right:hover{
     color: white;
     background-color: lightgray;
