@@ -22,11 +22,11 @@ class CartItem extends Component {
                             attributes={this.props.data.attributes} 
                             productOptions={this.props.data.options}
                             onSelectAttribute={this.selectedItemAttribute} 
-                            isInCart={true}
+                            isInCart={this.props.inMenu}
                             error={{}} />
                     </div>
                 </div>
-                <div className='cart-item-right'>
+                <div className={this.props.inMenu? 'cart-item-right-sm' : 'cart-item-right-lg'}>
                     <div className='cart-item-controls'>
                         <div className='cart-menu-control-btn-wrapper'>
                             <button 

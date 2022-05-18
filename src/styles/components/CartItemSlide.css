@@ -5,7 +5,16 @@
     width: 100%;
 }
 
+.cart-item-slide {
+    display: flex;
+}
+
 .cart-item-single-img {
+    display: flex;
+    width: 100%;
+}
+
+.cart-item-img {
     display: flex;
     width: 100%;
 }
