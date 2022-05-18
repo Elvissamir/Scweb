@@ -3,6 +3,7 @@ import CartItemList from './CartItemList';
 import { Link } from 'react-router-dom';
 import routes from '../routes';
 import getTotalPrice from '../utils/getTotalPrice';
+import getItemsCount from '../utils/getItemsCount';
 
 class CartMenu extends Component {     
     handleIncreaseCount = item => {
@@ -19,7 +20,7 @@ class CartMenu extends Component {
                 <div className='cart-menu'>
                     <div className='cart-menu-top'>
                         <p className='cart-menu-bag-text'>My Bag</p>
-                        <p className='cart-menu-count'>{this.props.cartItems.length} items</p>
+                        <p className='cart-menu-count'>{getItemsCount(this.props.cartItems)} items</p>
                     </div>
                     <div className='cart-menu-items-wrapper'>
                         <CartItemList 
