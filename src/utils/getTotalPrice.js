@@ -6,7 +6,7 @@ const getTotalPrice = (items, symbol) => {
         return total
     }, 0)
 
-    return totalPrice
+    return Math.ceil(totalPrice)
 }
 
 export default getTotalPrice
