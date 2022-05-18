@@ -10,9 +10,13 @@
 
 .cart-item:not(:first-child) {
     border-top: 1px lightgray solid;
+    padding: 1.5em 0 0 0;
+    margin-top: 1.5em;
+}
+
+.cart-item:last-child {
     border-bottom: 1px lightgray solid;
     padding: 1.5em 0 1.5em 0;
-    margin-top: 1.5em;
 }
 
 .cart-item-brand {
