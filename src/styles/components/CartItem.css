@@ -10,7 +10,9 @@
 }
 
 .cart-item-img-wrapper {
+    display: flex;
     height: auto;
+    width: auto;
 }
 
 .cart-item-img {
@@ -43,6 +45,7 @@
 .cart-item-right {
     display: flex;
     height: 150px;
+    width: 50%;
 }
 
 .cart-item-controls {

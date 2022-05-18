@@ -44,8 +44,9 @@ class CartItem extends Component {
                     </div>
                     <div className='cart-item-img-wrapper'>
                         <CartItemSlide 
-                            showButtons={this.props.inMenu}
-                            images={this.props.data.gallery} />
+                            inMenu={this.props.inMenu}
+                            images={this.props.data.gallery}
+                        />
                     </div>
                 </div>
             </div>
