@@ -51,11 +51,13 @@ class ProductItem extends Component {
     }    
 
     renderGallery = () => {
-        <div className="product-item-gallery">
-            {this.props.data.gallery.map((img, index) => 
-                <img className="product-item-gallery-option" key={index} src={img} alt="" />    
-            )}
-        </div>
+        return (
+            <div className="product-item-gallery">
+                {this.props.data.gallery.map((img, index) => 
+                    <img className="product-item-gallery-option" key={index} src={img} alt="" />    
+                )}
+            </div>
+        )
     }
 
     render() { 

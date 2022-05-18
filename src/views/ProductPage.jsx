@@ -38,7 +38,7 @@ class ProductPage extends Component {
                     <ProductItem 
                         data={this.state.product} 
                         onAddedToCart={this.handleAddedToCart}
-                        showGallery={false} />}
+                        showGallery={true} />}
             </div>
         );
     }

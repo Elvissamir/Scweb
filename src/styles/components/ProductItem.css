@@ -16,14 +16,18 @@
 }
 
 .product-item-gallery-option {
-    height: 100px;
+    height: 50px;
     width: 100%;
+}
+
+.product-item-gallery-option:not(:first-child) {
+    margin-top: 0.5em;
 }
 
 .product-img-with-gallery {
     display: flex;
     height: 400px;
-    margin-left: 2em;
+    margin-left: 1em;
     box-shadow: 0px 0px 5px lightgray;
     width: 80%;
 }
