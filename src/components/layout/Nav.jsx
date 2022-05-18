@@ -8,6 +8,7 @@ import CurrenciesMenu from '../CurrenciesMenu';
 import CategoriesMenu from '../CategoriesMenu';
 import CartMenu from '../CartMenu';
 import CartMenuBtn from '../CartMenuBtn';
+import getItemsCount from '../../utils/getItemsCount';
 
 class Nav extends Component {
     state = { 
@@ -80,7 +81,7 @@ class Nav extends Component {
                             </div>
                             <div className='cart-menu-wrapper'>
                                 <CartMenuBtn 
-                                    itemCount={this.props.cartItems.length}
+                                    itemCount={getItemsCount(this.props.cartItems)}
                                     onToggleCartMenu={this.handleToggleCartMenu} />
                                 <CartMenu 
                                     activeCurrency={this.props.activeCurrency}
