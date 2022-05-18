@@ -1,0 +1,26 @@
+.cart-item-slide-wrapper {
+    display: flex;
+    position: relative;
+    height: 100%;
+}
+
+.cart-item-slide-buttons {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
+}
+
+.cart-item-slide-left, .cart-item-slide-right{
+    color: white;
+    cursor: pointer;
+    background-color: black;
+    padding: 0.5em;
+}
+
+.cart-item-slide-left:hover, .cart-item-slide-right:hover{
+    color: white;
+    background-color: lightgray;
+}

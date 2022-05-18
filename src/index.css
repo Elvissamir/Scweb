@@ -14,6 +14,7 @@
 @import './styles/components/CartMenu.css';
 @import './styles/components/CartItemList.css';
 @import './styles/components/CartItem.css';
+@import './styles/components/CartItemSlide.css';
 @import './styles/components/CartCountIcon.css';
 @import './styles/components/CartMenuBtn.css';
 @import './styles/components/Attribute.css';

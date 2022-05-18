@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import selectPriceToShow from '../utils/selectPriceToShow';
 import AttributeList from './AttributeList';
+import CartItemSlide from './CartItemSlide';
 
 class CartItem extends Component {
     selectedItemAttribute = selectionData => {
@@ -42,9 +43,9 @@ class CartItem extends Component {
                         </div>
                     </div>
                     <div className='cart-item-img-wrapper'>
-                        <img 
-                            className='cart-item-img' 
-                            src={this.props.data.gallery[0]} alt="" />
+                        <CartItemSlide 
+                            showButtons={this.props.inMenu}
+                            images={this.props.data.gallery} />
                     </div>
                 </div>
             </div>
