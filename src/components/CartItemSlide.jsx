@@ -23,6 +23,19 @@ class CartItemSlide extends Component {
         this.setState({ activeIndex: this.state.activeIndex + 1 })
     }
 
+    renderControls = () => {
+        return (
+            <div className="cart-item-slide-buttons">
+                <button onClick={this.moveLeft} className="cart-item-slide-left">
+                    <img src="/imgs/left.png" alt="" />
+                </button>
+                <button onClick={this.moveRight} className="cart-item-slide-right">
+                    <img src="/imgs/right.png" alt="" />
+                </button>
+            </div>
+        )
+    }
+
     renderSlider = () => {
         if (this.props.inMenu)
             return <img className="cart-item-single-img" src={this.props.images[0]} alt="" />
@@ -35,14 +48,7 @@ class CartItemSlide extends Component {
                         className={this.state.activeIndex === index? 'cart-item-img':'hide'}
                         src={image} alt="" />
                 )}
-                <div className="cart-item-slide-buttons">
-                    <button onClick={this.moveLeft} className="cart-item-slide-left">
-                        <img src="/imgs/left.png" alt="" />
-                    </button>
-                    <button onClick={this.moveRight} className="cart-item-slide-right">
-                        <img src="/imgs/right.png" alt="" />
-                    </button>
-                </div>
+               {this.props.images.length > 1 && this.renderControls()}
             </div>
         )
     }
