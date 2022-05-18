@@ -11,6 +11,10 @@
     flex-direction: column;
 }
 
+.cart-info-labels p:not(:first-child), .cart-info-values p:not(:first-child) {
+    margin-top: 0.5em;
+}
+
 .cart-info-values {
     display: flex;
     flex-direction: column;

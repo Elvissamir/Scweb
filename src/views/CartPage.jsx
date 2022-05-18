@@ -22,7 +22,7 @@ class CartPage extends Component {
             <div className='content-wrapper'>
                 <p className='title'>CART </p>
                 <div className='cart-list'>
-                    <div className='cart-menu-items-wrapper'>
+                    <div className='cart-items-wrapper'>
                         <CartItemList 
                             cartItems={this.props.cartItems}
                             onSelectAttribute={this.handleSelectAttribute}
