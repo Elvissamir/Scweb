@@ -1,9 +1,14 @@
+.cart-list {
+    margin-top: 2em;
+}
+
 .cart-info {
     margin-top: 2em;
 }
 
 .cart-details {
     display: flex;
+    font-size: 1.2em;
 }
 
 .cart-info-labels {

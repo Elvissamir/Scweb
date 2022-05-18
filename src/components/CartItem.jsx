@@ -12,9 +12,13 @@ class CartItem extends Component {
         return (
             <div className='cart-item'>
                 <div className='cart-item-left'>
-                    <p className='cart-item-brand'>{this.props.data.brand}</p>
-                    <p className='cart-item-name'>{this.props.data.name}</p>
-                    <p className='cart-item-price'>
+                    <p className={this.props.inMenu? 'cart-item-brand-sm':'cart-item-brand'}>
+                        {this.props.data.brand}
+                    </p>
+                    <p className={this.props.inMenu? 'cart-item-name-sm': 'cart-item-name'}>
+                        {this.props.data.name}
+                    </p>
+                    <p className={this.props.inMenu? 'cart-item-price-sm': 'cart-item-price'}>
                         {selectPriceToShow(this.props.data.prices, this.props.activeCurrency)}
                     </p>
                     <div className='cart-item-attributes'>

@@ -25,7 +25,9 @@
     position: absolute;
     align-items: flex-end;
     height: 100%;
-    width: 100%;
+    left: 70%;
+    top: -5%;
+    width: 20%;
 }
 
 .cart-item-slide-left, .cart-item-slide-right{
