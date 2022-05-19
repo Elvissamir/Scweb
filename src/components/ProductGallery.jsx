@@ -6,6 +6,7 @@ class ProductGallery extends Component {
             <div className="product-item-gallery">
                 {this.props.gallery.map((img, index) => 
                     <img 
+                        onClick={() => this.props.onSelectImage(index)}
                         className="product-item-gallery-option" 
                         key={index} 
                         src={img} alt="" />    

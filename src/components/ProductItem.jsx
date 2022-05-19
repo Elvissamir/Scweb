@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 
 class ProductItem extends Component {
     state = {
+        activeIndex: 0,
         product: {options: {}},
         attributeError: {},
     }
@@ -38,6 +39,10 @@ class ProductItem extends Component {
         this.setState({ attributeError: error })
     }
 
+    handleSelectImage = index => {
+        this.setState({ activeIndex: index })
+    }
+
     handleSelectAttribute = ({ attribute, value }) => {
         const product = {...this.state.product}
         if (product.options)
@@ -55,9 +60,18 @@ class ProductItem extends Component {
         return (
             <div className="product-item">
                 <div className="product-item-left">
-                    {this.props.showGallery && <ProductGallery gallery={this.props.data.gallery} />}
+                    {this.props.showGallery && 
+                        <ProductGallery 
+                            activeIndex={this.state.activeIndex}
+                            onSelectImage={this.handleSelectImage}
+                            gallery={this.props.data.gallery} />}
                     <div className={this.props.showGallery? 'product-img-with-gallery': 'product-img-no-gallery'}>
-                        <img className='product-item-img' src={this.props.data.gallery[0]} alt="" />
+                        {this.props.data.gallery.map((image, index) => 
+                            <img 
+                                className={this.state.activeIndex === index? 'product-item-img':'hide'} 
+                                key={index}
+                                src={image} alt="" />
+                        )}
                     </div>
                 </div>
                 <div className='product-item-details'>
