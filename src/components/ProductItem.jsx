@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import ProductGallery from './ProductGallery';
+import AttributeList from "./AttributeList";
 import { Markup } from "interweave";
 import selectPriceToShow from '../utils/selectPriceToShow';
-import AttributeList from "./AttributeList";
 import { addCartItem } from '../store/features/cart/cartSlice';
 import shouldAddToCart from "../validation/Product/AddProductToCart";
 import mapProductToCartItem from '../utils/mapProductToCartItem';
@@ -50,21 +51,11 @@ class ProductItem extends Component {
         this.setState({ product })
     }    
 
-    renderGallery = () => {
-        return (
-            <div className="product-item-gallery">
-                {this.props.data.gallery.map((img, index) => 
-                    <img className="product-item-gallery-option" key={index} src={img} alt="" />    
-                )}
-            </div>
-        )
-    }
-
     render() { 
         return (
             <div className="product-item">
                 <div className="product-item-left">
-                    {this.props.showGallery && this.renderGallery()}
+                    {this.props.showGallery && <ProductGallery gallery={this.props.data.gallery} />}
                     <div className={this.props.showGallery? 'product-img-with-gallery': 'product-img-no-gallery'}>
                         <img className='product-item-img' src={this.props.data.gallery[0]} alt="" />
                     </div>
