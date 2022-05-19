@@ -16,6 +16,7 @@
 }
 
 .product-item-gallery-option {
+    cursor: pointer;
     height: 50px;
     width: 100%;
 }
